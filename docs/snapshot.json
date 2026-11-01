@@ -1,0 +1,4763 @@
+{
+"contract": "docs/feed-contract.md section 3",
+"cut": "from the record step log, masked, scanned",
+"goals": [
+"BRAIN-04",
+"STRUCT-01",
+"ZEUS-01"
+],
+"events": [
+{
+"seq": 158328,
+"utc": "2026-10-30T16:57:55Z",
+"goal": "STRUCT-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 6414fe27"
+},
+{
+"seq": 158589,
+"utc": "2026-10-30T16:58:22Z",
+"goal": "STRUCT-01",
+"step": "CUT",
+"kind": "CUT",
+"role": null,
+"text": "struct-01 from main 55ca365a; wt-main 55ca365a detached; wt-branch 55ca365a on struct-01; under .../scratch/STRUCT-01/"
+},
+{
+"seq": 158647,
+"utc": "2026-10-30T16:59:48Z",
+"goal": "STRUCT-01",
+"step": "W00a",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W00a"
+},
+{
+"seq": 158747,
+"utc": "2026-10-30T16:59:51Z",
+"goal": "STRUCT-01",
+"step": "T00a",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T00a/card.md"
+},
+{
+"seq": 158877,
+"utc": "2026-10-30T17:03:37Z",
+"goal": "STRUCT-01",
+"step": "W00a",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction log at the top of the home, report-only)"
+},
+{
+"seq": 159063,
+"utc": "2026-10-30T17:04:01Z",
+"goal": "STRUCT-01",
+"step": "T00a",
+"kind": "PARTIAL",
+"role": null,
+"text": ".../T00a/return.md (commit list not measured: card defect, unquoted format token; re-measure on a fresh card)"
+},
+{
+"seq": 159171,
+"utc": "2026-10-30T17:04:39Z",
+"goal": "STRUCT-01",
+"step": "T00b",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 159301,
+"utc": "2026-10-30T17:05:32Z",
+"goal": "STRUCT-01",
+"step": "T00b",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 0afe8230"
+},
+{
+"seq": 159478,
+"utc": "2026-10-30T17:06:45Z",
+"goal": "STRUCT-01",
+"step": "T00b",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../T00b/return.md (install exit 0 by the writer's echo; measured next by the T00c scout)"
+},
+{
+"seq": 159534,
+"utc": "2026-10-30T17:08:20Z",
+"goal": "STRUCT-01",
+"step": "W01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W01"
+},
+{
+"seq": 159634,
+"utc": "2026-10-30T17:08:21Z",
+"goal": "STRUCT-01",
+"step": "T00c",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T00c/card.md"
+},
+{
+"seq": 159742,
+"utc": "2026-10-30T17:08:22Z",
+"goal": "STRUCT-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 160629,
+"utc": "2026-10-30T17:28:09Z",
+"goal": "STRUCT-01",
+"step": "NOTE",
+"kind": "session",
+"role": null,
+"text": "cut at 17:08:22Z, cause in the run log's words: Background tasks still running 10m after the last turn (subagent \"STRUCT-01 T01 re-measure reviewer\"); stopping "
+},
+{
+"seq": 160723,
+"utc": "2026-10-30T17:29:16Z",
+"goal": "STRUCT-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 6414fe27 (resume 1 of 3)"
+},
+{
+"seq": 160834,
+"utc": "2026-10-30T17:29:24Z",
+"goal": "STRUCT-01",
+"step": "W01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 1 (abandoned at the session cut, closed on resume 1)"
+},
+{
+"seq": 161075,
+"utc": "2026-10-30T17:29:26Z",
+"goal": "STRUCT-01",
+"step": "W01",
+"kind": "OWNER-NOISE",
+"role": null,
+"text": "dispatch tool writes under the loop home (current_goal, dispatch/.lock, dispatch/STRUCT-01 run logs and prompt) and NOISE registry transaction log at the top of"
+},
+{
+"seq": 161488,
+"utc": "2026-10-30T17:29:40Z",
+"goal": "STRUCT-01",
+"step": "T00c",
+"kind": "NOTE",
+"role": null,
+"text": ".../T00c/summary.txt: the six done-when files are saved; the scout's return text was not saved before the cut, so its label is not recorded; read: preflight exi"
+},
+{
+"seq": 161741,
+"utc": "2026-10-30T17:29:41Z",
+"goal": "STRUCT-01",
+"step": "T01",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: PASS; 31 of 31 folders, 327 rows, 327 PASS, 0 FAIL, control k2 printed 1 FAIL; beside KIT-05 T13 readings, regression"
+},
+{
+"seq": 161847,
+"utc": "2026-10-30T17:30:50Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 161975,
+"utc": "2026-10-30T17:32:35Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 e8693d96"
+},
+{
+"seq": 162166,
+"utc": "2026-10-30T17:37:11Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return.md (writer's reading: 35 of 35 rows on wt-branch, 0 of 35 on wt-main; review next)"
+},
+{
+"seq": 162222,
+"utc": "2026-10-30T17:38:13Z",
+"goal": "STRUCT-01",
+"step": "W02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W02"
+},
+{
+"seq": 162330,
+"utc": "2026-10-30T17:38:17Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 162460,
+"utc": "2026-10-30T17:52:58Z",
+"goal": "STRUCT-01",
+"step": "W02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction logs at the top of the home, report-only)"
+},
+{
+"seq": 162749,
+"utc": "2026-10-30T17:52:59Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "FAIL",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: FAIL; C1 FAIL on the redactor-tag clause, the lint flags a tag only beside a path separator; AC3 PASS 35/35 on wt-bra"
+},
+{
+"seq": 162862,
+"utc": "2026-10-30T17:53:21Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/retry1-card.md"
+},
+{
+"seq": 162997,
+"utc": "2026-10-30T17:54:03Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "ROLLBACK",
+"role": null,
+"text": "retry1 .../writer/rollback.txt sha256 b555dc3ff2811 2f"
+},
+{
+"seq": 163211,
+"utc": "2026-10-30T17:54:07Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "ROLLBACK",
+"role": null,
+"text": "retry1 correction: the sha256 prefix in the line above reads b555dc3f with the space removed (rollback.txt under .../T02/writer/)"
+},
+{
+"seq": 163460,
+"utc": "2026-10-30T17:56:35Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return-retry1.md (retry 1; writer's reading 39 of 39 on wt-branch, 0 of 39 on wt-main; tag clause kept at the separator reading; fresh "
+},
+{
+"seq": 163516,
+"utc": "2026-10-30T17:56:57Z",
+"goal": "STRUCT-01",
+"step": "W03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W03"
+},
+{
+"seq": 163627,
+"utc": "2026-10-30T17:56:59Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 163756,
+"utc": "2026-10-30T18:10:43Z",
+"goal": "STRUCT-01",
+"step": "W03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction log at the top of the home, report-only)"
+},
+{
+"seq": 164158,
+"utc": "2026-10-30T18:10:44Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "PASS",
+"role": null,
+"text": ".../r1/verdict.md (first word VERDICT: PASS; S01-C1 39/39 on wt-branch, 0/39 on wt-main, control FAIL shown, regressions 327 PASS this run; two readings kept: t"
+},
+{
+"seq": 164356,
+"utc": "2026-10-30T18:11:11Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "COMMIT",
+"role": null,
+"text": "1dea3b78 on struct-01 (feat(bin): add loop-skill-lint, Goal: STRUCT-01; pre-commit scan hits=0 lines=689 repo wt-branch)"
+},
+{
+"seq": 164523,
+"utc": "2026-10-30T18:11:11Z",
+"goal": "STRUCT-01",
+"step": "T02",
+"kind": "PUSH",
+"role": null,
+"text": "struct-01 remote head 1dea3b78 (range scan origin/main..HEAD hits=0; external call 1 of 12)"
+},
+{
+"seq": 164780,
+"utc": "2026-10-30T18:12:11Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "NOTE",
+"role": null,
+"text": "scope: C2 names DESCRIPTION.md in agents/, hooks/, templates/, tests/ and examples/, outside this goal's Authority (hooks/ named Out of scope); T03 writes the f"
+},
+{
+"seq": 164886,
+"utc": "2026-10-30T18:12:12Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 165122,
+"utc": "2026-10-30T18:12:55Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer: the writer's shell hook denied a stray inline interpreter probe of the writer's own, not a card step; no writes, no rollback; fresh writer with the same"
+},
+{
+"seq": 165228,
+"utc": "2026-10-30T18:12:55Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 165554,
+"utc": "2026-10-30T18:13:56Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer: the writer's shell hook denied a second stray probe of the writer's own (a script run with a flag), a different command from the first and not a card st"
+},
+{
+"seq": 165663,
+"utc": "2026-10-30T18:14:12Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../r2/card.md"
+},
+{
+"seq": 165798,
+"utc": "2026-10-30T18:15:54Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 unmeasured-no-hash-tool"
+},
+{
+"seq": 166006,
+"utc": "2026-10-30T18:19:46Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 a98ff378 (the leader's hash, correcting the writer's ROLLBACK line that read unmeasured)"
+},
+{
+"seq": 166191,
+"utc": "2026-10-30T18:19:47Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return.md (writer's reading 15 of 15 on wt-branch, 0 of 15 on wt-main; review next)"
+},
+{
+"seq": 166247,
+"utc": "2026-10-30T18:20:33Z",
+"goal": "STRUCT-01",
+"step": "W04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W04"
+},
+{
+"seq": 166355,
+"utc": "2026-10-30T18:20:34Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 166580,
+"utc": "2026-10-30T18:20:39Z",
+"goal": "STRUCT-01",
+"step": "W04",
+"kind": "NOTE",
+"role": null,
+"text": "leader defect: the plan file's Live block still names window W03 at this TRIPWIRE OPEN; it was not rewritten after W03's close nor before this open; it is rewri"
+},
+{
+"seq": 166709,
+"utc": "2026-10-30T18:35:27Z",
+"goal": "STRUCT-01",
+"step": "W04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction log at the top of the home, report-only)"
+},
+{
+"seq": 166868,
+"utc": "2026-10-30T18:35:27Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "INCIDENT",
+"role": null,
+"text": "the T03 reviewer's return ran past 40 lines; only its VERDICT lines are kept, the full text is its verdict file"
+},
+{
+"seq": 167250,
+"utc": "2026-10-30T18:35:28Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: FAIL; C2 FAIL: nine C-series row runners take the positional form, so AGENTS.md's claim that every runner reads its e"
+},
+{
+"seq": 167359,
+"utc": "2026-10-30T18:35:43Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../r3/card.md"
+},
+{
+"seq": 167566,
+"utc": "2026-10-30T18:37:46Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return-retry1.md (retry 1; writer's reading 16 of 16 on wt-branch, 0 of 16 on wt-main; fresh review next)"
+},
+{
+"seq": 167622,
+"utc": "2026-10-30T18:38:19Z",
+"goal": "STRUCT-01",
+"step": "W05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W05"
+},
+{
+"seq": 167733,
+"utc": "2026-10-30T18:38:21Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 167863,
+"utc": "2026-10-30T18:56:52Z",
+"goal": "STRUCT-01",
+"step": "W05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction logs at the top of the home, report-only)"
+},
+{
+"seq": 168028,
+"utc": "2026-10-30T18:56:53Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "INCIDENT",
+"role": null,
+"text": "the T03 fresh reviewer's return ran past 40 lines; only its VERDICT lines are kept, the full text is its verdict file"
+},
+{
+"seq": 168407,
+"utc": "2026-10-30T18:56:53Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": ".../r1/verdict.md (first word VERDICT: FAIL; C2 FAIL: (i) the Verify environment line lacks PYTHONDONTWRITEBYTECODE=1, (ii) nine runners take only the positiona"
+},
+{
+"seq": 168516,
+"utc": "2026-10-30T18:57:22Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../r4/card.md"
+},
+{
+"seq": 168644,
+"utc": "2026-10-30T18:57:45Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 8ddbca92"
+},
+{
+"seq": 168943,
+"utc": "2026-10-30T19:01:44Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return-retry2.md (retry 2; writer's reading 18 of 18 on wt-branch, 0 of 18 on wt-main, nine runners in the environment form fail=0; pos"
+},
+{
+"seq": 168999,
+"utc": "2026-10-30T19:02:29Z",
+"goal": "STRUCT-01",
+"step": "W06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W06"
+},
+{
+"seq": 169110,
+"utc": "2026-10-30T19:02:30Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 169239,
+"utc": "2026-10-30T19:17:42Z",
+"goal": "STRUCT-01",
+"step": "W06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction log at the top of the home, report-only)"
+},
+{
+"seq": 169567,
+"utc": "2026-10-30T19:17:43Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md (first word VERDICT: PASS; S01-C2 18/18 on wt-branch, 0/18 on wt-main, control FAIL shown, regressions 366 PASS this run; C2's DESCRIPTION cla"
+},
+{
+"seq": 169778,
+"utc": "2026-10-30T19:17:56Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "COMMIT",
+"role": null,
+"text": "14bf1d0d on struct-01 (docs: add AGENTS.md and folder descriptions, Goal: STRUCT-01; pre-commit scan hits=0 lines=557 repo wt-branch)"
+},
+{
+"seq": 169956,
+"utc": "2026-10-30T19:17:57Z",
+"goal": "STRUCT-01",
+"step": "T03",
+"kind": "PUSH",
+"role": null,
+"text": "struct-01 remote head 14bf1d0d (range scan origin/main..HEAD hits=0 lines=1246; external call 2 of 12)"
+},
+{
+"seq": 170062,
+"utc": "2026-10-30T19:18:44Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 170190,
+"utc": "2026-10-30T19:20:29Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 a6fcf7a4"
+},
+{
+"seq": 170377,
+"utc": "2026-10-30T19:23:44Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return.md (writer's reading 6 of 6 on wt-branch, 5 of 6 FAIL on wt-main; review next)"
+},
+{
+"seq": 170433,
+"utc": "2026-10-30T19:24:36Z",
+"goal": "STRUCT-01",
+"step": "W07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W07"
+},
+{
+"seq": 170541,
+"utc": "2026-10-30T19:24:38Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 170601,
+"utc": "2026-10-30T19:37:28Z",
+"goal": "STRUCT-01",
+"step": "W07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 171021,
+"utc": "2026-10-30T19:37:29Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "FAIL",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: FAIL; C3 FAIL: no byte comparison of the 14 moved blocks, and STATUS.md says word for word while the closing RECORD-0"
+},
+{
+"seq": 171130,
+"utc": "2026-10-30T19:37:39Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../r1/card.md"
+},
+{
+"seq": 171339,
+"utc": "2026-10-30T19:39:17Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return-retry1.md (retry 1; writer's reading 7 of 7 on wt-branch, 6 of 7 FAIL on wt-main; fresh review next)"
+},
+{
+"seq": 171395,
+"utc": "2026-10-30T19:39:36Z",
+"goal": "STRUCT-01",
+"step": "W08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W08"
+},
+{
+"seq": 171506,
+"utc": "2026-10-30T19:39:38Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 171635,
+"utc": "2026-10-30T19:52:17Z",
+"goal": "STRUCT-01",
+"step": "W08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction log at the top of the home, report-only)"
+},
+{
+"seq": 171883,
+"utc": "2026-10-30T19:52:18Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "PASS",
+"role": null,
+"text": ".../r1/verdict.md (first word VERDICT: PASS; S01-C3 7/7 on wt-branch, 1/7 on wt-main, 14 of 14 blocks byte-equal, control FAIL shown, regressions 384 PASS this "
+},
+{
+"seq": 172075,
+"utc": "2026-10-30T19:52:35Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "COMMIT",
+"role": null,
+"text": "c30a594b on struct-01 (docs: add docs/STATUS.md, Goal: STRUCT-01; pre-commit scan hits=0 lines=527 repo wt-branch)"
+},
+{
+"seq": 172253,
+"utc": "2026-10-30T19:52:35Z",
+"goal": "STRUCT-01",
+"step": "T04",
+"kind": "PUSH",
+"role": null,
+"text": "struct-01 remote head c30a594b (range scan origin/main..HEAD hits=0 lines=1772; external call 3 of 12)"
+},
+{
+"seq": 172359,
+"utc": "2026-10-30T19:53:23Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 172487,
+"utc": "2026-10-30T19:54:04Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 49e5b90d"
+},
+{
+"seq": 172740,
+"utc": "2026-10-30T19:58:52Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return.md (writer's reading 13 of 13 on wt-branch, 0 of 13 on wt-main; three out-of-scope files say date and goal not recorded in the k"
+},
+{
+"seq": 172796,
+"utc": "2026-10-30T19:59:17Z",
+"goal": "STRUCT-01",
+"step": "W09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W09"
+},
+{
+"seq": 172904,
+"utc": "2026-10-30T19:59:18Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 173033,
+"utc": "2026-10-30T20:12:43Z",
+"goal": "STRUCT-01",
+"step": "W09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (NOISE registry transaction log at the top of the home, report-only)"
+},
+{
+"seq": 173346,
+"utc": "2026-10-30T20:12:44Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "FAIL",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: FAIL; C5 FAIL: three out-of-scope files say date and goal not recorded in the kit where the criterion asks for both; "
+},
+{
+"seq": 173455,
+"utc": "2026-10-30T20:13:30Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../r1/card.md"
+},
+{
+"seq": 173662,
+"utc": "2026-10-30T20:15:04Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return-retry1.md (retry 1; writer's reading 14 of 14 on wt-branch, 0 of 14 on wt-main; fresh review next)"
+},
+{
+"seq": 173718,
+"utc": "2026-10-30T20:15:22Z",
+"goal": "STRUCT-01",
+"step": "W10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W10"
+},
+{
+"seq": 173829,
+"utc": "2026-10-30T20:15:24Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 173889,
+"utc": "2026-10-30T20:26:58Z",
+"goal": "STRUCT-01",
+"step": "W10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 174112,
+"utc": "2026-10-30T20:26:59Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "PASS",
+"role": null,
+"text": ".../r1/verdict.md (first word VERDICT: PASS; S01-C5 14/14 on wt-branch, 0/14 on wt-main, control FAIL shown, regressions 391 PASS this run)"
+},
+{
+"seq": 174326,
+"utc": "2026-10-30T20:27:15Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "COMMIT",
+"role": null,
+"text": "c5aeeff8 on struct-01 (docs: add six ADRs and four out-of-scope notes, Goal: STRUCT-01; pre-commit scan hits=0 lines=473 repo wt-branch)"
+},
+{
+"seq": 174504,
+"utc": "2026-10-30T20:27:15Z",
+"goal": "STRUCT-01",
+"step": "T06",
+"kind": "PUSH",
+"role": null,
+"text": "struct-01 remote head c5aeeff8 (range scan origin/main..HEAD hits=0 lines=2243; external call 4 of 12)"
+},
+{
+"seq": 174610,
+"utc": "2026-10-30T20:28:05Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 174739,
+"utc": "2026-10-30T20:29:54Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 a97d8716"
+},
+{
+"seq": 175151,
+"utc": "2026-10-30T20:32:50Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "NOTE",
+"role": null,
+"text": "writer return .../writer/return.md reads NEEDS-DECISION: C12's two hash rows fail on the edited modules, MANIFEST's second hash column not updated, and the writ"
+},
+{
+"seq": 175260,
+"utc": "2026-10-30T20:32:50Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../f1/card.md"
+},
+{
+"seq": 175388,
+"utc": "2026-10-30T20:33:12Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 ecdb0f9f"
+},
+{
+"seq": 175585,
+"utc": "2026-10-30T20:34:36Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return-fold1.md (fold-in; writer's reading S01-C8 6 of 6 on wt-branch, C12 7 of 7; review next)"
+},
+{
+"seq": 175641,
+"utc": "2026-10-30T20:34:57Z",
+"goal": "STRUCT-01",
+"step": "W11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W11"
+},
+{
+"seq": 175749,
+"utc": "2026-10-30T20:34:58Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 175809,
+"utc": "2026-10-30T20:49:39Z",
+"goal": "STRUCT-01",
+"step": "W11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 176035,
+"utc": "2026-10-30T20:49:39Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: PASS; S01-C8 6/6 on wt-branch, 0/6 on wt-main, C12 7/7, control FAIL shown, regressions 405 PASS this run)"
+},
+{
+"seq": 176250,
+"utc": "2026-10-30T20:49:55Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "COMMIT",
+"role": null,
+"text": "13cc1d40 on struct-01 (fix(bin): read WRITABLE_TREES through loop_conf, Goal: STRUCT-01; pre-commit scan hits=0 lines=237 repo wt-branch)"
+},
+{
+"seq": 176428,
+"utc": "2026-10-30T20:49:56Z",
+"goal": "STRUCT-01",
+"step": "T09",
+"kind": "PUSH",
+"role": null,
+"text": "struct-01 remote head 13cc1d40 (range scan origin/main..HEAD hits=0 lines=2478; external call 5 of 12)"
+},
+{
+"seq": 176534,
+"utc": "2026-10-30T20:50:37Z",
+"goal": "STRUCT-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 176662,
+"utc": "2026-10-30T20:51:34Z",
+"goal": "STRUCT-01",
+"step": "T05",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 ff2c0db9"
+},
+{
+"seq": 176849,
+"utc": "2026-10-30T20:55:47Z",
+"goal": "STRUCT-01",
+"step": "T05",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return.md (writer's reading 6 of 6 on wt-branch, 5 of 6 FAIL on wt-main; review next)"
+},
+{
+"seq": 176905,
+"utc": "2026-10-30T20:56:08Z",
+"goal": "STRUCT-01",
+"step": "W12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W12"
+},
+{
+"seq": 177013,
+"utc": "2026-10-30T20:56:09Z",
+"goal": "STRUCT-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 177073,
+"utc": "2026-10-30T21:07:32Z",
+"goal": "STRUCT-01",
+"step": "W12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 177290,
+"utc": "2026-10-30T21:07:32Z",
+"goal": "STRUCT-01",
+"step": "T05",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: PASS; S01-C4 6/6 on wt-branch, 1/6 on wt-main, control FAIL shown, regressions 411 PASS this run)"
+},
+{
+"seq": 177520,
+"utc": "2026-10-30T21:07:46Z",
+"goal": "STRUCT-01",
+"step": "T05",
+"kind": "COMMIT",
+"role": null,
+"text": "c55c272f on struct-01 (docs: add the install and first-goal guides and the drift test, Goal: STRUCT-01; pre-commit scan hits=0 lines=357 repo wt-branch)"
+},
+{
+"seq": 177698,
+"utc": "2026-10-30T21:07:50Z",
+"goal": "STRUCT-01",
+"step": "T05",
+"kind": "PUSH",
+"role": null,
+"text": "struct-01 remote head c55c272f (range scan origin/main..HEAD hits=0 lines=2832; external call 6 of 12)"
+},
+{
+"seq": 177804,
+"utc": "2026-10-30T21:08:32Z",
+"goal": "STRUCT-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 177932,
+"utc": "2026-10-30T21:11:05Z",
+"goal": "STRUCT-01",
+"step": "T08",
+"kind": "ROLLBACK",
+"role": null,
+"text": ".../writer/rollback.txt sha256 c89c171b"
+},
+{
+"seq": 178147,
+"utc": "2026-10-30T21:16:37Z",
+"goal": "STRUCT-01",
+"step": "T08",
+"kind": "DONE",
+"role": null,
+"text": "writer return .../writer/return.md (writer's reading 20 of 20 on wt-branch, 10 FAIL on wt-main; three earlier rows folded in; review next)"
+},
+{
+"seq": 178203,
+"utc": "2026-10-30T21:17:01Z",
+"goal": "STRUCT-01",
+"step": "W13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W13"
+},
+{
+"seq": 178311,
+"utc": "2026-10-30T21:17:02Z",
+"goal": "STRUCT-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 178371,
+"utc": "2026-10-30T21:34:03Z",
+"goal": "STRUCT-01",
+"step": "W13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 178701,
+"utc": "2026-10-30T21:34:03Z",
+"goal": "STRUCT-01",
+"step": "T08",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md (first word VERDICT: PASS; S01-C7 20/20 on wt-branch, 10 FAIL on wt-main, control FAIL shown, regressions 417 PASS this run; finding F1: t"
+},
+{
+"seq": 178893,
+"utc": "2026-10-30T21:34:19Z",
+"goal": "STRUCT-01",
+"step": "T08",
+"kind": "COMMIT",
+"role": null,
+"text": "a733054e on struct-01 (docs: rewrite the README, Goal: STRUCT-01; pre-commit scan hits=0 lines=417 repo wt-branch)"
+},
+{
+"seq": 179071,
+"utc": "2026-10-30T21:34:19Z",
+"goal": "STRUCT-01",
+"step": "T08",
+"kind": "PUSH",
+"role": null,
+"text": "struct-01 remote head a733054e (range scan origin/main..HEAD hits=0 lines=3244; external call 7 of 12)"
+},
+{
+"seq": 179474,
+"utc": "2026-10-30T21:34:46Z",
+"goal": "STRUCT-01",
+"step": "T07",
+"kind": "NOTE",
+"role": null,
+"text": "C6 dropped, not dispatched: wall time 275.3 of 400 min by the step-log tool's --active; C6 plus its changelog commit (T10), the final review and the close would"
+},
+{
+"seq": 179626,
+"utc": "2026-10-30T21:36:03Z",
+"goal": "STRUCT-01",
+"step": "W14",
+"kind": "NOTE",
+"role": null,
+"text": "leader defect: the plan file's Live block kept window W13 after W13's close; rewritten now, before W14 opens"
+},
+{
+"seq": 179682,
+"utc": "2026-10-30T21:36:03Z",
+"goal": "STRUCT-01",
+"step": "W14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W14"
+},
+{
+"seq": 179790,
+"utc": "2026-10-30T21:36:05Z",
+"goal": "STRUCT-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 179976,
+"utc": "2026-10-30T21:37:11Z",
+"goal": "STRUCT-01",
+"step": "T11",
+"kind": "NOTE",
+"role": null,
+"text": "the pretool guard denied the T11 reviewer dispatch: a reviewer dispatch over 80 lines; the leader's defect (card at 98 lines); no reviewer ran"
+},
+{
+"seq": 180194,
+"utc": "2026-10-30T21:37:12Z",
+"goal": "STRUCT-01",
+"step": "W14",
+"kind": "NOTE",
+"role": null,
+"text": "leader defect: inside W14 the leader wrote the trimmed card evidence.../r1/card.md, its sweep copy and a scratch script; W14 is closed now with no batch run ins"
+},
+{
+"seq": 180269,
+"utc": "2026-10-30T21:37:17Z",
+"goal": "STRUCT-01",
+"step": "W14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0 (no batch ran)"
+},
+{
+"seq": 180325,
+"utc": "2026-10-30T21:37:20Z",
+"goal": "STRUCT-01",
+"step": "W15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W15"
+},
+{
+"seq": 180436,
+"utc": "2026-10-30T21:37:21Z",
+"goal": "STRUCT-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 180496,
+"utc": "2026-10-30T21:56:30Z",
+"goal": "STRUCT-01",
+"step": "W15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 180947,
+"utc": "2026-10-30T21:56:31Z",
+"goal": "STRUCT-01",
+"step": "T11",
+"kind": "FAIL",
+"role": null,
+"text": ".../r1/verdict.md (first word VERDICT: FAIL; AC2 FAIL and AC4 FAIL on card defects of the leader's: no cmp for the byte equalities, and a log format that printe"
+},
+{
+"seq": 181003,
+"utc": "2026-10-30T21:57:17Z",
+"goal": "STRUCT-01",
+"step": "W16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W16"
+},
+{
+"seq": 181114,
+"utc": "2026-10-30T21:57:18Z",
+"goal": "STRUCT-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 181174,
+"utc": "2026-10-30T22:02:58Z",
+"goal": "STRUCT-01",
+"step": "W16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 181685,
+"utc": "2026-10-30T22:02:59Z",
+"goal": "STRUCT-01",
+"step": "T11",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md (first word VERDICT: PASS; AC2 PASS cmp main exit 0, control exit 1, 7 commits each Goal STRUCT-01; AC4 PASS install exit=0, kinds cmp exit 0,"
+},
+{
+"seq": 181921,
+"utc": "2026-10-30T22:05:21Z",
+"goal": "STRUCT-01",
+"step": "T12",
+"kind": "PASS",
+"role": null,
+"text": ".../record/close-checks.txt (step-log check exit 0, plan lint with --log exit 0, report lint exit 0, control exit 1; install word evidence/record/install-word.t"
+},
+{
+"seq": 182132,
+"utc": "2026-10-30T22:05:26Z",
+"goal": "STRUCT-01",
+"step": "GOAL",
+"kind": "GOAL",
+"role": null,
+"text": "CLOSED DONE: seven of eight cards on struct-01 at a733054e, pushed; C6 dropped for wall time; report .../STRUCT-01/report.md"
+},
+{
+"seq": 182354,
+"utc": "2026-10-30T22:05:38Z",
+"goal": "STRUCT-01",
+"step": "GOAL",
+"kind": "SENT",
+"role": null,
+"text": "report .../STRUCT-01/report.md sha256 2105357f by loop-report, DELIVERED; no edit of the report after this line"
+},
+{
+"seq": 182749,
+"utc": "2026-10-30T22:05:55Z",
+"goal": "STRUCT-01",
+"step": "GOAL",
+"kind": "COMMIT",
+"role": null,
+"text": "record b36e6e28 docs(record) close, Goal: STRUCT-01; scans .../record/b36e6e2-precommit-scan.txt and b36e6e2-range-scan.txt hits=0; record repo has no remote, p"
+},
+{
+"seq": 183040,
+"utc": "2026-10-30T22:37:50Z",
+"goal": "STRUCT-01",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "1 .../STRUCT-01/RULING.md sha256 4ebc18e0: C1 PASS on the separator reading; defects of the leader, scout, writer and reviewer recorded; C6 to KIT-06; state sec"
+},
+{
+"seq": 183117,
+"utc": "2026-10-30T22:40:24Z",
+"goal": "BRAIN-04",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 7c68a585"
+},
+{
+"seq": 183168,
+"utc": "2026-10-30T22:43:39Z",
+"goal": "BRAIN-04",
+"step": "W00",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 183266,
+"utc": "2026-10-30T22:43:45Z",
+"goal": "BRAIN-04",
+"step": "T00a",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T00a/card.md"
+},
+{
+"seq": 183364,
+"utc": "2026-10-30T22:43:46Z",
+"goal": "BRAIN-04",
+"step": "T00b",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T00b/card.md"
+},
+{
+"seq": 183462,
+"utc": "2026-10-30T22:43:46Z",
+"goal": "BRAIN-04",
+"step": "T00c",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T00c/card.md"
+},
+{
+"seq": 183521,
+"utc": "2026-10-30T22:51:44Z",
+"goal": "BRAIN-04",
+"step": "W00",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 183642,
+"utc": "2026-10-30T22:51:45Z",
+"goal": "BRAIN-04",
+"step": "W00",
+"kind": "NOISE",
+"role": null,
+"text": "registry transaction log at the top of the home, standing rule owner surfaces"
+},
+{
+"seq": 183739,
+"utc": "2026-10-30T22:52:16Z",
+"goal": "BRAIN-04",
+"step": "T00a",
+"kind": "T00a",
+"role": null,
+"text": "PASS .../T00a/baseline.md"
+},
+{
+"seq": 183841,
+"utc": "2026-10-30T22:52:16Z",
+"goal": "BRAIN-04",
+"step": "T00b",
+"kind": "T00b",
+"role": null,
+"text": "PASS .../T00b/vault-classes.md"
+},
+{
+"seq": 183945,
+"utc": "2026-10-30T22:52:17Z",
+"goal": "BRAIN-04",
+"step": "T00c",
+"kind": "T00c",
+"role": null,
+"text": "PASS .../T00c/agreement-rules.md"
+},
+{
+"seq": 184049,
+"utc": "2026-10-30T22:53:03Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 184178,
+"utc": "2026-10-30T22:53:47Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer hook needs writable.txt for the rollback copy, evidence.../writer/denial.md"
+},
+{
+"seq": 184360,
+"utc": "2026-10-30T22:53:58Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "WRITABLE",
+"role": null,
+"text": "leader wrote goals/BRAIN-04/writable.txt, roots docs/brain, docs/graphify-out, work folder, goal evidence; new file, rollback remove it"
+},
+{
+"seq": 184464,
+"utc": "2026-10-30T22:53:58Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 184567,
+"utc": "2026-10-30T22:54:31Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 2c666350"
+},
+{
+"seq": 184739,
+"utc": "2026-10-30T22:55:55Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer notes written, checks denied by the writer hook (interpreter takes one script path only), evidence.../writer/denial.md"
+},
+{
+"seq": 184849,
+"utc": "2026-10-30T22:55:55Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../proof/card.md"
+},
+{
+"seq": 184940,
+"utc": "2026-10-30T22:57:01Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "writer",
+"role": null,
+"text": "DONE proof run, evidence.../writer/out-p1.txt"
+},
+{
+"seq": 184991,
+"utc": "2026-10-30T22:57:02Z",
+"goal": "BRAIN-04",
+"step": "W01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 185097,
+"utc": "2026-10-30T22:57:04Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 185299,
+"utc": "2026-10-30T22:57:28Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DENIED",
+"role": null,
+"text": "reviewer dispatch by the pretool guard, card named the writer's evidence subfolder in its rollback line; not dispatched, card to be edited outside the window"
+},
+{
+"seq": 185358,
+"utc": "2026-10-30T22:57:32Z",
+"goal": "BRAIN-04",
+"step": "W01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 185409,
+"utc": "2026-10-30T22:57:40Z",
+"goal": "BRAIN-04",
+"step": "W02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 185515,
+"utc": "2026-10-30T22:57:42Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 185574,
+"utc": "2026-10-30T23:02:14Z",
+"goal": "BRAIN-04",
+"step": "W02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 185701,
+"utc": "2026-10-30T23:02:14Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "T01",
+"role": null,
+"text": "FAIL evidence.../review/verdict.md, subject 1 lacks the five surface skills; retry 1"
+},
+{
+"seq": 185806,
+"utc": "2026-10-30T23:02:15Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "INCIDENT",
+"role": null,
+"text": "reviewer return over 40 lines, kept only its VERDICT lines"
+},
+{
+"seq": 185917,
+"utc": "2026-10-30T23:02:31Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1/card.md"
+},
+{
+"seq": 186013,
+"utc": "2026-10-30T23:03:33Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "writer",
+"role": null,
+"text": "DONE retry 1, evidence.../retry1/out-p1.txt"
+},
+{
+"seq": 186064,
+"utc": "2026-10-30T23:03:34Z",
+"goal": "BRAIN-04",
+"step": "W03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 186173,
+"utc": "2026-10-30T23:03:36Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 186232,
+"utc": "2026-10-30T23:07:38Z",
+"goal": "BRAIN-04",
+"step": "W03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 186335,
+"utc": "2026-10-30T23:07:39Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "T01",
+"role": null,
+"text": "PASS .../r1/verdict.md"
+},
+{
+"seq": 186490,
+"utc": "2026-10-30T23:08:03Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "COMMIT",
+"role": null,
+"text": "4be1969 C1 on record, scans evidence/record/4be1969-precommit-scan.txt and 4be1969-range-scan.txt, hits 0 both"
+},
+{
+"seq": 186594,
+"utc": "2026-10-30T23:08:37Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 186677,
+"utc": "2026-10-30T23:09:27Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "ROLLBACK",
+"role": null,
+"text": "rollback.txt sha256 608d01ca"
+},
+{
+"seq": 186757,
+"utc": "2026-10-30T23:11:04Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "writer",
+"role": null,
+"text": "DONE evidence.../writer/out-p1.txt"
+},
+{
+"seq": 186808,
+"utc": "2026-10-30T23:11:04Z",
+"goal": "BRAIN-04",
+"step": "W04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 186914,
+"utc": "2026-10-30T23:11:06Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 186973,
+"utc": "2026-10-30T23:17:14Z",
+"goal": "BRAIN-04",
+"step": "W04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 187220,
+"utc": "2026-10-30T23:17:15Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "T02",
+"role": null,
+"text": "FAIL evidence.../review/verdict.md, rows byte identity and source word lack a raw comparison and a control on the card; content of all thirteen PASS; retry 1 fi"
+},
+{
+"seq": 187372,
+"utc": "2026-10-30T23:18:29Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "retry",
+"role": null,
+"text": "1: leader revised work/check_t02.py (bytes equality, per-note source word, three controls), no writer change"
+},
+{
+"seq": 187423,
+"utc": "2026-10-30T23:18:30Z",
+"goal": "BRAIN-04",
+"step": "W05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 187532,
+"utc": "2026-10-30T23:18:32Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 187591,
+"utc": "2026-10-30T23:23:14Z",
+"goal": "BRAIN-04",
+"step": "W05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 187694,
+"utc": "2026-10-30T23:23:15Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "T02",
+"role": null,
+"text": "PASS .../r1/verdict.md"
+},
+{
+"seq": 187849,
+"utc": "2026-10-30T23:23:26Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "COMMIT",
+"role": null,
+"text": "630caf7 C2 on record, scans evidence/record/630caf7-precommit-scan.txt and 630caf7-range-scan.txt, hits 0 both"
+},
+{
+"seq": 187953,
+"utc": "2026-10-30T23:24:28Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 188056,
+"utc": "2026-10-30T23:25:34Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 9c3f63f6"
+},
+{
+"seq": 188146,
+"utc": "2026-10-30T23:28:55Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "writer",
+"role": null,
+"text": "DONE 43 notes, evidence.../writer/out-p1.txt"
+},
+{
+"seq": 188197,
+"utc": "2026-10-30T23:28:56Z",
+"goal": "BRAIN-04",
+"step": "W06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 188303,
+"utc": "2026-10-30T23:28:58Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 188362,
+"utc": "2026-10-30T23:35:50Z",
+"goal": "BRAIN-04",
+"step": "W06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 188483,
+"utc": "2026-10-30T23:35:51Z",
+"goal": "BRAIN-04",
+"step": "W06",
+"kind": "NOISE",
+"role": null,
+"text": "registry transaction log at the top of the home, standing rule owner surfaces"
+},
+{
+"seq": 188658,
+"utc": "2026-10-30T23:35:52Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "T03",
+"role": null,
+"text": "FAIL evidence.../review/verdict.md, count reading A and an uncontrolled copy zero; claim sentences near the scout's wording; retry 1"
+},
+{
+"seq": 188873,
+"utc": "2026-10-30T23:37:09Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "leader",
+"role": null,
+"text": "added sentcopy and copytwin modes to work/notecheck.py and work/check_reuse.py; measured 43 of 43 new notes share eight-word runs with the scout files, 13 with "
+},
+{
+"seq": 188984,
+"utc": "2026-10-30T23:37:09Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1/card.md"
+},
+{
+"seq": 189160,
+"utc": "2026-10-30T23:38:58Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer, its own cmp loop with a command substitution denied by the writer hook, evidence.../retry1/denial.md; no edit made"
+},
+{
+"seq": 189272,
+"utc": "2026-10-30T23:38:58Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1b/card.md"
+},
+{
+"seq": 189437,
+"utc": "2026-10-30T23:41:30Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer, comparison pipeline denied twice by the writer hook (second a respelling), evidence.../retry1/denial.md"
+},
+{
+"seq": 189582,
+"utc": "2026-10-30T23:41:31Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "leader",
+"role": null,
+"text": "measured the 43 rollback copies with sha256sum -c against the live notes: 43 OK, work/t03-before.sha"
+},
+{
+"seq": 189693,
+"utc": "2026-10-30T23:41:31Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1/card.md"
+},
+{
+"seq": 189880,
+"utc": "2026-10-30T23:41:44Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1c/card.md (supersedes the retry 1 line above, which named the card but sent nothing)"
+},
+{
+"seq": 190067,
+"utc": "2026-10-30T23:45:05Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "NEEDS-DECISION",
+"role": null,
+"text": "writer rewrite, 40 of 43 clear, 3 matching only on the frontmatter name line (leader measured with work/reuse_noname.py: 0 without it)"
+},
+{
+"seq": 190278,
+"utc": "2026-10-30T23:45:06Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "RULING",
+"role": null,
+"text": "leader: the name line equals the file name, an identifier the goal forbids renaming; check_reuse.py leaves it out; final run notes_with_shared_runs=0, control m"
+},
+{
+"seq": 190329,
+"utc": "2026-10-30T23:45:37Z",
+"goal": "BRAIN-04",
+"step": "W07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 190438,
+"utc": "2026-10-30T23:45:38Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 190497,
+"utc": "2026-10-30T23:51:33Z",
+"goal": "BRAIN-04",
+"step": "W07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 190600,
+"utc": "2026-10-30T23:51:33Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "T03",
+"role": null,
+"text": "PASS .../r1/verdict.md"
+},
+{
+"seq": 190755,
+"utc": "2026-10-30T23:51:55Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "COMMIT",
+"role": null,
+"text": "571c9e7 C3 on record, scans evidence/record/571c9e7-precommit-scan.txt and 571c9e7-range-scan.txt, hits 0 both"
+},
+{
+"seq": 190859,
+"utc": "2026-10-30T23:52:30Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 190962,
+"utc": "2026-10-30T23:53:25Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 58bcd40c"
+},
+{
+"seq": 191053,
+"utc": "2026-10-30T23:55:17Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "writer",
+"role": null,
+"text": "DONE ten notes, evidence.../writer/out-p1.txt"
+},
+{
+"seq": 191104,
+"utc": "2026-10-30T23:55:18Z",
+"goal": "BRAIN-04",
+"step": "W08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 191210,
+"utc": "2026-10-30T23:55:19Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 191269,
+"utc": "2026-10-31T00:01:10Z",
+"goal": "BRAIN-04",
+"step": "W08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 191390,
+"utc": "2026-10-31T00:01:11Z",
+"goal": "BRAIN-04",
+"step": "W08",
+"kind": "NOISE",
+"role": null,
+"text": "registry transaction log at the top of the home, standing rule owner surfaces"
+},
+{
+"seq": 191552,
+"utc": "2026-10-31T00:01:11Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "T04",
+"role": null,
+"text": "FAIL evidence.../review/verdict.md, two notes say no incident date where rows A22 and A23 give a session range; retry 1"
+},
+{
+"seq": 191663,
+"utc": "2026-10-31T00:01:12Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1/card.md"
+},
+{
+"seq": 191759,
+"utc": "2026-10-31T00:02:23Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "writer",
+"role": null,
+"text": "DONE retry 1, evidence.../retry1/out-p1.txt"
+},
+{
+"seq": 191810,
+"utc": "2026-10-31T00:02:23Z",
+"goal": "BRAIN-04",
+"step": "W09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 191919,
+"utc": "2026-10-31T00:02:25Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 191978,
+"utc": "2026-10-31T00:09:05Z",
+"goal": "BRAIN-04",
+"step": "W09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 192099,
+"utc": "2026-10-31T00:09:06Z",
+"goal": "BRAIN-04",
+"step": "W09",
+"kind": "NOISE",
+"role": null,
+"text": "registry transaction log at the top of the home, standing rule owner surfaces"
+},
+{
+"seq": 192202,
+"utc": "2026-10-31T00:09:07Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "T04",
+"role": null,
+"text": "PASS .../r1/verdict.md"
+},
+{
+"seq": 192434,
+"utc": "2026-10-31T00:09:07Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "FINDING",
+"role": null,
+"text": "the T04 retry reviewer grepped the plan fixture, outside its card; and the leader dated a ruling 2026-10-31 in work/check_reuse.py and the T03 retry card where "
+},
+{
+"seq": 192589,
+"utc": "2026-10-31T00:09:25Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "COMMIT",
+"role": null,
+"text": "ce84ddf C4 on record, scans evidence/record/ce84ddf-precommit-scan.txt and ce84ddf-range-scan.txt, hits 0 both"
+},
+{
+"seq": 192693,
+"utc": "2026-10-31T00:09:53Z",
+"goal": "BRAIN-04",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 192796,
+"utc": "2026-10-31T00:11:08Z",
+"goal": "BRAIN-04",
+"step": "T05",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 cbd70e52"
+},
+{
+"seq": 192985,
+"utc": "2026-10-31T00:12:56Z",
+"goal": "BRAIN-04",
+"step": "T05",
+"kind": "writer",
+"role": null,
+"text": "DONE 11 landed, 7 left out as already in the brain; finding: the goal's eight named lessons sit in rows the scout classed mixed, a new task T05b"
+},
+{
+"seq": 193036,
+"utc": "2026-10-31T00:13:21Z",
+"goal": "BRAIN-04",
+"step": "W10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 193142,
+"utc": "2026-10-31T00:13:23Z",
+"goal": "BRAIN-04",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 193201,
+"utc": "2026-10-31T00:22:25Z",
+"goal": "BRAIN-04",
+"step": "W10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 193322,
+"utc": "2026-10-31T00:22:26Z",
+"goal": "BRAIN-04",
+"step": "W10",
+"kind": "NOISE",
+"role": null,
+"text": "registry transaction log at the top of the home, standing rule owner surfaces"
+},
+{
+"seq": 193422,
+"utc": "2026-10-31T00:22:26Z",
+"goal": "BRAIN-04",
+"step": "T05",
+"kind": "T05",
+"role": null,
+"text": "PASS .../review/verdict.md"
+},
+{
+"seq": 193577,
+"utc": "2026-10-31T00:22:43Z",
+"goal": "BRAIN-04",
+"step": "T05",
+"kind": "COMMIT",
+"role": null,
+"text": "549fd63 C5 on record, scans evidence/record/549fd63-precommit-scan.txt and 549fd63-range-scan.txt, hits 0 both"
+},
+{
+"seq": 193736,
+"utc": "2026-10-31T00:23:36Z",
+"goal": "BRAIN-04",
+"step": "T00a",
+"kind": "PASS",
+"role": null,
+"text": ".../T00a/baseline.md (restates the PASS line of 22:52Z in the form the card lint reads)"
+},
+{
+"seq": 193900,
+"utc": "2026-10-31T00:23:37Z",
+"goal": "BRAIN-04",
+"step": "T00b",
+"kind": "PASS",
+"role": null,
+"text": ".../T00b/vault-classes.md (restates the PASS line of 22:52Z in the form the card lint reads)"
+},
+{
+"seq": 194066,
+"utc": "2026-10-31T00:23:37Z",
+"goal": "BRAIN-04",
+"step": "T00c",
+"kind": "PASS",
+"role": null,
+"text": ".../T00c/agreement-rules.md (restates the PASS line of 22:52Z in the form the card lint reads)"
+},
+{
+"seq": 194232,
+"utc": "2026-10-31T00:23:38Z",
+"goal": "BRAIN-04",
+"step": "T01",
+"kind": "PASS",
+"role": null,
+"text": ".../r1/verdict.md (restates the PASS line of 23:07Z in the form the card lint reads)"
+},
+{
+"seq": 194398,
+"utc": "2026-10-31T00:23:38Z",
+"goal": "BRAIN-04",
+"step": "T02",
+"kind": "PASS",
+"role": null,
+"text": ".../r1/verdict.md (restates the PASS line of 23:23Z in the form the card lint reads)"
+},
+{
+"seq": 194566,
+"utc": "2026-10-31T00:23:39Z",
+"goal": "BRAIN-04",
+"step": "T03",
+"kind": "PASS",
+"role": null,
+"text": ".../r1/verdict.md (restates the earlier T03 PASS line in the form the card lint reads)"
+},
+{
+"seq": 194734,
+"utc": "2026-10-31T00:23:40Z",
+"goal": "BRAIN-04",
+"step": "T04",
+"kind": "PASS",
+"role": null,
+"text": ".../r1/verdict.md (restates the earlier T04 PASS line in the form the card lint reads)"
+},
+{
+"seq": 194899,
+"utc": "2026-10-31T00:23:40Z",
+"goal": "BRAIN-04",
+"step": "T05",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md (restates the earlier T05 PASS line in the form the card lint reads)"
+},
+{
+"seq": 195094,
+"utc": "2026-10-31T00:23:48Z",
+"goal": "BRAIN-04",
+"step": "T06",
+"kind": "NEW",
+"role": null,
+"text": "TASK T06 from the C5 review finding: four of the goal's eight C5 lessons sit only in mixed rows; old T06 to T08 renumbered T07 to T09 in the plan fixture"
+},
+{
+"seq": 195198,
+"utc": "2026-10-31T00:23:48Z",
+"goal": "BRAIN-04",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 195301,
+"utc": "2026-10-31T00:24:45Z",
+"goal": "BRAIN-04",
+"step": "T06",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 1e8a4773"
+},
+{
+"seq": 195393,
+"utc": "2026-10-31T00:25:53Z",
+"goal": "BRAIN-04",
+"step": "T06",
+"kind": "writer",
+"role": null,
+"text": "DONE four notes, evidence.../writer/out-p1.txt"
+},
+{
+"seq": 195444,
+"utc": "2026-10-31T00:25:53Z",
+"goal": "BRAIN-04",
+"step": "W11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 195550,
+"utc": "2026-10-31T00:25:55Z",
+"goal": "BRAIN-04",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 195609,
+"utc": "2026-10-31T00:31:34Z",
+"goal": "BRAIN-04",
+"step": "W11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 195705,
+"utc": "2026-10-31T00:31:34Z",
+"goal": "BRAIN-04",
+"step": "T06",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"seq": 195861,
+"utc": "2026-10-31T00:31:48Z",
+"goal": "BRAIN-04",
+"step": "T06",
+"kind": "COMMIT",
+"role": null,
+"text": "d9ccb24 T06 on record, scans evidence/record/d9ccb24-precommit-scan.txt and d9ccb24-range-scan.txt, hits 0 both"
+},
+{
+"seq": 195965,
+"utc": "2026-10-31T00:32:18Z",
+"goal": "BRAIN-04",
+"step": "T07",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 196068,
+"utc": "2026-10-31T00:33:17Z",
+"goal": "BRAIN-04",
+"step": "T07",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 a3141ec2"
+},
+{
+"seq": 196182,
+"utc": "2026-10-31T00:34:33Z",
+"goal": "BRAIN-04",
+"step": "T07",
+"kind": "writer",
+"role": null,
+"text": "DONE five notes and two index repairs, evidence.../writer/out-p1.txt"
+},
+{
+"seq": 196233,
+"utc": "2026-10-31T00:34:34Z",
+"goal": "BRAIN-04",
+"step": "W12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 196339,
+"utc": "2026-10-31T00:34:35Z",
+"goal": "BRAIN-04",
+"step": "T07",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 196398,
+"utc": "2026-10-31T00:39:46Z",
+"goal": "BRAIN-04",
+"step": "W12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 196494,
+"utc": "2026-10-31T00:39:46Z",
+"goal": "BRAIN-04",
+"step": "T07",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"seq": 196649,
+"utc": "2026-10-31T00:40:16Z",
+"goal": "BRAIN-04",
+"step": "T07",
+"kind": "COMMIT",
+"role": null,
+"text": "e9d3662 C6 on record, scans evidence/record/e9d3662-precommit-scan.txt and e9d3662-range-scan.txt, hits 0 both"
+},
+{
+"seq": 196800,
+"utc": "2026-10-31T00:41:30Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "leader",
+"role": null,
+"text": "wrote work/seed_t08.py and work/graphcheck.py; pre-rebuild control evidence/T08/leader-precheck.txt exit 1"
+},
+{
+"seq": 196904,
+"utc": "2026-10-31T00:41:31Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+},
+{
+"seq": 197080,
+"utc": "2026-10-31T00:45:03Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer, its own inline hash code denied by the writer hook, evidence.../writer/denial.md; nothing under docs/graphify-out changed"
+},
+{
+"seq": 197252,
+"utc": "2026-10-31T00:45:04Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "leader",
+"role": null,
+"text": "copied graph.json, GRAPH_REPORT.md, manifest.json byte-exact to evidence/T08/before-leader with sha256sum -c 3 OK, the rollback"
+},
+{
+"seq": 197361,
+"utc": "2026-10-31T00:45:04Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../cont/card.md"
+},
+{
+"seq": 197540,
+"utc": "2026-10-31T00:53:04Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer at s3, graphify extract not in the writer allow set, evidence.../cont/denial.md; chunks 05 to 14 written, s2 cached 95"
+},
+{
+"seq": 197763,
+"utc": "2026-10-31T00:53:05Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "ROLLBACK",
+"role": null,
+"text": "for T08 recorded by the writer at evidence.../cont/rollback.txt, h1 sha256 0d00e58b of before-leader/SHA256SUMS; journaled by the leader at the writer's request"
+},
+{
+"seq": 198060,
+"utc": "2026-10-31T00:53:05Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "RULING",
+"role": null,
+"text": "leader: path-only name hits in docs/graphify-out chunk files are the absolute source_file REBUILD.md requires; folder ignored, never committed; recorded, not bl"
+},
+{
+"seq": 198170,
+"utc": "2026-10-31T00:53:06Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../cont2/card.md"
+},
+{
+"seq": 198342,
+"utc": "2026-10-31T00:55:02Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "writer",
+"role": null,
+"text": "DONE graph 265 nodes 377 links, evidence.../writer/out-p0-2.txt; leader wrote work/gq.py, a read-only graph query for the eval"
+},
+{
+"seq": 198393,
+"utc": "2026-10-31T00:55:02Z",
+"goal": "BRAIN-04",
+"step": "W13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 198499,
+"utc": "2026-10-31T00:55:04Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 198558,
+"utc": "2026-10-31T00:59:58Z",
+"goal": "BRAIN-04",
+"step": "W13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 198833,
+"utc": "2026-10-31T00:59:58Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "FAIL",
+"role": null,
+"text": "evidence.../review/verdict.md: rebuild rows PASS (265 nodes, graph 00:53:30Z after commit 00:39:52Z, wiki newer, nothing committed); eval 8 of 12 strict by the "
+},
+{
+"seq": 199019,
+"utc": "2026-10-31T01:01:02Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "retry",
+"role": null,
+"text": "1: leader copied the graph to work/r-T08/g (sha256sum -c OK) and wrote work/gq_graphify.py, graphify's own query on the copy; no writer change"
+},
+{
+"seq": 199070,
+"utc": "2026-10-31T01:01:02Z",
+"goal": "BRAIN-04",
+"step": "W14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 199179,
+"utc": "2026-10-31T01:01:04Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 199238,
+"utc": "2026-10-31T01:10:09Z",
+"goal": "BRAIN-04",
+"step": "W14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 199462,
+"utc": "2026-10-31T01:10:09Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "FAIL",
+"role": null,
+"text": "evidence.../r1/verdict.md: graphify query 9 of 12, leader gq 8 of 12, stale control q9 fails by design (two done-notes same date, no time); pantheon extraction "
+},
+{
+"seq": 199573,
+"utc": "2026-10-31T01:10:10Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry2/card.md"
+},
+{
+"seq": 199798,
+"utc": "2026-10-31T01:15:11Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "NEEDS-DECISION",
+"role": null,
+"text": "writer retry 2: chunks 07, 10, 11 enriched and re-seeded, the incremental extract skipped unchanged notes, graph still 265 nodes; rollback evidence.../retry2/be"
+},
+{
+"seq": 199910,
+"utc": "2026-10-31T01:15:12Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry2b/card.md"
+},
+{
+"seq": 200217,
+"utc": "2026-10-31T01:16:08Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "ROLLBACK",
+"role": null,
+"text": "retry 2: mv evidence.../retry2/manifest.prev.json back to docs/graphify-out/manifest.json, copy evidence.../retry2/before chunks back, rerun s2 to s5; pre-goal "
+},
+{
+"seq": 200362,
+"utc": "2026-10-31T01:16:09Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "writer",
+"role": null,
+"text": "DONE retry 2: graph 349 nodes 477 links, cache 114 hit 0 miss, evidence.../retry2/out-p0.txt"
+},
+{
+"seq": 200413,
+"utc": "2026-10-31T01:16:24Z",
+"goal": "BRAIN-04",
+"step": "W15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 200522,
+"utc": "2026-10-31T01:16:25Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 200581,
+"utc": "2026-10-31T01:25:47Z",
+"goal": "BRAIN-04",
+"step": "W15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 200834,
+"utc": "2026-10-31T01:25:47Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "FAIL",
+"role": null,
+"text": "evidence.../r2/verdict.md: rebuild rows PASS (349 nodes, graph 01:15:35Z, wiki 01:15:38Z, nothing committed); eval graphify 10 of 12, leader gq 8 of 12, absent "
+},
+{
+"seq": 201094,
+"utc": "2026-10-31T01:25:48Z",
+"goal": "BRAIN-04",
+"step": "T08",
+"kind": "PARTIAL",
+"role": null,
+"text": "T08 lands partial under the standing rule after two retries: rebuild landed; eval AC5 not met, the stale control left to proposed cards (done-notes without a ti"
+},
+{
+"seq": 201145,
+"utc": "2026-10-31T01:27:23Z",
+"goal": "BRAIN-04",
+"step": "W16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 201251,
+"utc": "2026-10-31T01:27:24Z",
+"goal": "BRAIN-04",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 201310,
+"utc": "2026-10-31T01:32:39Z",
+"goal": "BRAIN-04",
+"step": "W16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 201624,
+"utc": "2026-10-31T01:32:39Z",
+"goal": "BRAIN-04",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "evidence.../review/verdict.md: AC1 format FAIL (todo.md), AC3 pattern FAIL (8 hits, all todo.md), AC1 scan and controls PASS, AC2 EQUAL without a planted contro"
+},
+{
+"seq": 201754,
+"utc": "2026-10-31T01:33:02Z",
+"goal": "BRAIN-04",
+"step": "T09",
+"kind": "FINDING",
+"role": null,
+"text": "the T09 reviewer ran one command outside its card (a2 again on todo.md, counts only)"
+},
+{
+"seq": 201805,
+"utc": "2026-10-31T01:33:03Z",
+"goal": "BRAIN-04",
+"step": "W17",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 201914,
+"utc": "2026-10-31T01:33:04Z",
+"goal": "BRAIN-04",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r1/card.md"
+},
+{
+"seq": 201973,
+"utc": "2026-10-31T01:39:03Z",
+"goal": "BRAIN-04",
+"step": "W17",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 202220,
+"utc": "2026-10-31T01:39:04Z",
+"goal": "BRAIN-04",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "evidence.../r1/verdict.md: AC1 format FAIL and AC3 pattern FAIL, both todo.md only; AC1 stoplist, scan, controls PASS; AC2 PASS; AC3 names and copy PASS; AC4 me"
+},
+{
+"seq": 202364,
+"utc": "2026-10-31T01:39:53Z",
+"goal": "BRAIN-04",
+"step": "GOAL",
+"kind": "HELD",
+"role": null,
+"text": "on AC1 and AC3, todo.md only; gate: owner ruling on todo.md; report .../BRAIN-04/report.md"
+},
+{
+"seq": 202531,
+"utc": "2026-10-31T01:40:16Z",
+"goal": "BRAIN-04",
+"step": "GOAL",
+"kind": "REPORT",
+"role": null,
+"text": "sent HELD, report.md sha256 12981997, loop-report DELIVERED; hold commit 486f49b, scans evidence/record/486f49b-*"
+},
+{
+"seq": 202657,
+"utc": "2026-10-31T02:19:08Z",
+"goal": "BRAIN-04",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 7c68a585; resume under RULING.md ruling 1, ledger row 235"
+},
+{
+"seq": 202708,
+"utc": "2026-10-31T02:20:01Z",
+"goal": "BRAIN-04",
+"step": "W18",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 202817,
+"utc": "2026-10-31T02:20:03Z",
+"goal": "BRAIN-04",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 202876,
+"utc": "2026-10-31T02:27:04Z",
+"goal": "BRAIN-04",
+"step": "W18",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 203107,
+"utc": "2026-10-31T02:27:17Z",
+"goal": "BRAIN-04",
+"step": "T09",
+"kind": "PASS",
+"role": null,
+"text": "evidence.../r2/verdict.md, return evidence.../r2/return.md: AC1 to AC3 PASS with docs/brain/todo.md excluded by ruling 1; AC4 measured parts PASS, report items "
+},
+{
+"seq": 203445,
+"utc": "2026-10-31T02:28:14Z",
+"goal": "BRAIN-04",
+"step": "CLOSE",
+"kind": "ROLLBACK",
+"role": null,
+"text": "done-note: rm docs/brain/brain-04-done.md; cp evidence/close/index.before.md docs/brain/index.md (index sha256 before 8ed47cc5); leader checks evidence/close: f"
+},
+{
+"seq": 203644,
+"utc": "2026-10-31T02:28:36Z",
+"goal": "BRAIN-04",
+"step": "CLOSE",
+"kind": "STATE",
+"role": null,
+"text": "sections 4 and 5 rewritten for the close: sha256 before f63f57a1 after 87ce0c50; ROLLBACK cp evidence/close/STATE.before.md docs/STATE.md"
+},
+{
+"seq": 203800,
+"utc": "2026-10-31T02:29:41Z",
+"goal": "BRAIN-04",
+"step": "CLOSE",
+"kind": "loop-journal",
+"role": null,
+"text": "--check exit 0 (168 lines); loop-card-lint --log on the plan exit 0; loop-card-lint on report.md exit 0"
+},
+{
+"seq": 203961,
+"utc": "2026-10-31T02:29:41Z",
+"goal": "BRAIN-04",
+"step": "CLOSE",
+"kind": "GOAL",
+"role": null,
+"text": "CLOSED DONE under ruling 1: T09 r2 PASS, C7 partial, 112 notes plus todo.md, report .../BRAIN-04/report.md"
+},
+{
+"seq": 204098,
+"utc": "2026-10-31T02:29:58Z",
+"goal": "BRAIN-04",
+"step": "CLOSE",
+"kind": "GOAL",
+"role": null,
+"text": "REPORT sent DONE, report.md sha256 f4d90679 at send and after, loop-report DELIVERED"
+},
+{
+"seq": 204374,
+"utc": "2026-10-31T02:30:16Z",
+"goal": "BRAIN-04",
+"step": "CLOSE",
+"kind": "COMMIT",
+"role": null,
+"text": "6014c41 close, Goal: BRAIN-04; pre-commit scan of 23 added lines hits 0, loop-scan --range 486f49b..HEAD hits 0, scans evidence/record/6014c41-*; no push, the r"
+},
+{
+"seq": 204780,
+"utc": "2026-10-31T02:49:21Z",
+"goal": "STRUCT-01",
+"step": "REVERT",
+"kind": "STRUCT-01",
+"role": null,
+"text": "live upgrade reverted per the owner's install word step 5: smoke loop-skill-lint ~/.claude/skills exited 1, not skills=7 broken=0; bin/loop_conf.py and bin/loop"
+},
+{
+"seq": 205401,
+"utc": "2026-10-31T03:09:53Z",
+"goal": "STRUCT-01",
+"step": "INSTALL",
+"kind": "STRUCT-01",
+"role": null,
+"text": "installed live by upgrade at a733054e (install.sh LOOP_UPGRADE=1, hooks untouched), run 2: replaced 2 (bin/loop_conf.py, bin/loop_tripwire.py), added 4 (bin/DES"
+},
+{
+"seq": 205684,
+"utc": "2026-10-31T03:23:21Z",
+"goal": "BRAIN-04",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "2 .../BRAIN-04/RULING.md sha256 9dcf696a: DONE stands; defects of the leader, scout, writer, reviewer and auditor recorded; returns-saved rule restated; seven K"
+},
+{
+"seq": 206387,
+"utc": "2026-10-31T19:16:52Z",
+"goal": "ZEUS-01",
+"step": "PLACED",
+"kind": "GOAL",
+"role": null,
+"text": "sha d3d45d37 ledger row 75"
+},
+{
+"seq": 206463,
+"utc": "2026-10-31T19:19:14Z",
+"goal": "ZEUS-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 d3d45d37"
+},
+{
+"seq": 206513,
+"utc": "2026-10-31T19:21:21Z",
+"goal": "ZEUS-01",
+"step": "w01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 206607,
+"utc": "2026-10-31T19:21:23Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T01/card.md"
+},
+{
+"seq": 206665,
+"utc": "2026-10-31T19:22:00Z",
+"goal": "ZEUS-01",
+"step": "w01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 206890,
+"utc": "2026-10-31T19:22:00Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH scout line above did not run: the pretool hook on the Agent call denied it because the card text names the OAuth file of the secret class, in its M"
+},
+{
+"seq": 207000,
+"utc": "2026-10-31T19:22:01Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "BLOCKED",
+"role": null,
+"text": "guard denial of the T01 dispatch, not retried in another spelling"
+},
+{
+"seq": 207199,
+"utc": "2026-10-31T19:22:37Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "HELD",
+"role": null,
+"text": "at T01, gate Q1: the Agent pretool hook denies a card that names the OAuth file of the secret class in a prohibition, report .../ZEUS-01/report.md"
+},
+{
+"seq": 207363,
+"utc": "2026-10-31T19:51:49Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "1 .../ZEUS-01/RULING.md sha256 6f29ee28 ledger row 76"
+},
+{
+"seq": 207439,
+"utc": "2026-10-31T19:52:29Z",
+"goal": "ZEUS-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 d3d45d37"
+},
+{
+"seq": 207785,
+"utc": "2026-10-31T19:53:12Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "NOTE",
+"role": null,
+"text": "the Bash pretool hook denied the leader's plan and card edit command because its match text quoted the old Must not line naming the OAuth file; nothing ran; the"
+},
+{
+"seq": 207835,
+"utc": "2026-10-31T19:53:44Z",
+"goal": "ZEUS-01",
+"step": "w02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 207929,
+"utc": "2026-10-31T19:53:47Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T01/card.md"
+},
+{
+"seq": 207987,
+"utc": "2026-10-31T19:56:34Z",
+"goal": "ZEUS-01",
+"step": "w02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 208332,
+"utc": "2026-10-31T19:56:35Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "PARTIAL",
+"role": null,
+"text": "12 of 13 commands ran, the guard denied command 9 (python -c skills set difference), return .../T01/return.md, errata .../T01/errata.md; the scout reports one o"
+},
+{
+"seq": 208540,
+"utc": "2026-10-31T19:57:23Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "NOTE",
+"role": null,
+"text": "evidence/T01/card-remeasure.md failed card lint on its file name (exit 2) and was never dispatched; the same card lives at evidence.../remeasure/card.md, lint e"
+},
+{
+"seq": 208590,
+"utc": "2026-10-31T19:57:24Z",
+"goal": "ZEUS-01",
+"step": "w03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 208694,
+"utc": "2026-10-31T19:57:27Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../remeasure/card.md"
+},
+{
+"seq": 208752,
+"utc": "2026-10-31T19:58:36Z",
+"goal": "ZEUS-01",
+"step": "w03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 209003,
+"utc": "2026-10-31T19:58:37Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "ANSWERED",
+"role": null,
+"text": "re-measure: skills set difference by diff -q, 8 Forge-only, 0 zeus-only, 12 common category folders plus .locks; zeus home and workspace empty; return .../remea"
+},
+{
+"seq": 209053,
+"utc": "2026-10-31T19:59:06Z",
+"goal": "ZEUS-01",
+"step": "w04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 209157,
+"utc": "2026-10-31T19:59:08Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 209319,
+"utc": "2026-10-31T20:01:46Z",
+"goal": "ZEUS-01",
+"step": "w04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner surface"
+},
+{
+"seq": 209637,
+"utc": "2026-10-31T20:01:47Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FAIL",
+"role": null,
+"text": "review .../review/verdict.md: Forge folder list 32 against 33 live with memories missing; zeus config.yaml non-comment lines not listed whole, 240 live; no-retr"
+},
+{
+"seq": 209687,
+"utc": "2026-10-31T20:02:13Z",
+"goal": "ZEUS-01",
+"step": "w05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 209788,
+"utc": "2026-10-31T20:02:16Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../retry1/card.md"
+},
+{
+"seq": 209950,
+"utc": "2026-10-31T20:03:50Z",
+"goal": "ZEUS-01",
+"step": "w05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner surface"
+},
+{
+"seq": 210210,
+"utc": "2026-10-31T20:03:51Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "ANSWERED",
+"role": null,
+"text": "retry 1: Forge 33 folders and 29 files, memories two files plus a zero-byte lock, zeus config.yaml 240 non-comment lines by grep -c and wc -l, scan hits 0; retu"
+},
+{
+"seq": 210565,
+"utc": "2026-10-31T20:03:52Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FINDING",
+"role": null,
+"text": "leader card defect: every T01 card says echo the exit on the next line, and the guard denies a line after the heredoc terminator; the retry 1 scout moved the ec"
+},
+{
+"seq": 210615,
+"utc": "2026-10-31T20:04:24Z",
+"goal": "ZEUS-01",
+"step": "w06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 210720,
+"utc": "2026-10-31T20:04:26Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review2/card.md"
+},
+{
+"seq": 210882,
+"utc": "2026-10-31T20:07:19Z",
+"goal": "ZEUS-01",
+"step": "w06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner surface"
+},
+{
+"seq": 211245,
+"utc": "2026-10-31T20:07:20Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FAIL",
+"role": null,
+"text": "review 2 .../review2/return.md, saved by the leader after the guard denied the reviewer's write under review2/: AC1 config byte comparison not run because the c"
+},
+{
+"seq": 211544,
+"utc": "2026-10-31T20:07:21Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FINDING",
+"role": null,
+"text": "two readings kept for the auditor: the reviewer reads the re-measure card's diff -q as a leader-side substitution for the denied inline interpreter; the leader "
+},
+{
+"seq": 211594,
+"utc": "2026-10-31T20:07:53Z",
+"goal": "ZEUS-01",
+"step": "w07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 211701,
+"utc": "2026-10-31T20:07:55Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 211863,
+"utc": "2026-10-31T20:10:58Z",
+"goal": "ZEUS-01",
+"step": "w07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner surface"
+},
+{
+"seq": 212203,
+"utc": "2026-10-31T20:10:59Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FAIL",
+"role": null,
+"text": "review 3 .../r2/verdict.md: AC1a to AC1d, R1 and both controls PASS, AC1e FAIL on errata item 2, the first scout's extra inline-interpreter probe after the firs"
+},
+{
+"seq": 212532,
+"utc": "2026-10-31T20:11:00Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "PARTIAL",
+"role": null,
+"text": "landed under the standing rule after two retries: the baseline lists PASS in .../r2/verdict.md, the no-retry clause FAIL; shape left out, proposed card: a guard"
+},
+{
+"seq": 212627,
+"utc": "2026-10-31T20:12:24Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T02/card.md"
+},
+{
+"seq": 212728,
+"utc": "2026-10-31T20:13:10Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.md sha256 04662ce0"
+},
+{
+"seq": 212905,
+"utc": "2026-10-31T20:14:13Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer-path-guard denied both record writes: no writable.txt for ZEUS-01; return .../writer/return.md"
+},
+{
+"seq": 213272,
+"utc": "2026-10-31T20:14:14Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "WRITABLE",
+"role": null,
+"text": "leader wrote goals/ZEUS-01/writable.txt, before absent, after sha256 c02f0b41, roots docs/bots/zeus, docs/brain/zeus, docs/brain/shared, scratch work and target"
+},
+{
+"seq": 213707,
+"utc": "2026-10-31T20:15:33Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer wrote docs.../zeus/SOUL.md sha256 31df5c5e and docs.../zeus/profile.yaml sha256 e3ead0d0, rollback evidence.../writer/rollback.md; proof c, d and e denie"
+},
+{
+"seq": 213757,
+"utc": "2026-10-31T20:16:18Z",
+"goal": "ZEUS-01",
+"step": "w08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 213861,
+"utc": "2026-10-31T20:16:20Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 214107,
+"utc": "2026-10-31T20:16:52Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH reviewer line above did not run: the Agent pretool hook denied it because the card pointed at the writer's evidence subfolder (the rollback path an"
+},
+{
+"seq": 214193,
+"utc": "2026-10-31T20:17:08Z",
+"goal": "ZEUS-01",
+"step": "w08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, no role ran in this window"
+},
+{
+"seq": 214543,
+"utc": "2026-10-31T20:17:09Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "INCIDENT",
+"role": null,
+"text": "leader rule breach: the leader edited evidence.../review/card.md twice inside open window w08 (rollback stated inline, the writer-folder Must not reworded) afte"
+},
+{
+"seq": 214593,
+"utc": "2026-10-31T20:17:15Z",
+"goal": "ZEUS-01",
+"step": "w09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 214697,
+"utc": "2026-10-31T20:17:18Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 214755,
+"utc": "2026-10-31T20:19:25Z",
+"goal": "ZEUS-01",
+"step": "w09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 214849,
+"utc": "2026-10-31T20:19:26Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"seq": 215027,
+"utc": "2026-10-31T20:19:49Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "COMMIT",
+"role": null,
+"text": "81a1491 C1 landed on record, trailer Goal: ZEUS-01, scans evidence/record/81a1491-precommit-scan.txt and 81a1491-range-scan.txt hits 0"
+},
+{
+"seq": 215077,
+"utc": "2026-10-31T20:20:38Z",
+"goal": "ZEUS-01",
+"step": "w10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 215177,
+"utc": "2026-10-31T20:20:41Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../scout/card.md"
+},
+{
+"seq": 215235,
+"utc": "2026-10-31T20:22:55Z",
+"goal": "ZEUS-01",
+"step": "w10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 215555,
+"utc": "2026-10-31T20:22:56Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "PARTIAL",
+"role": null,
+"text": "scout: Q1 Forge config paths are full drive paths, no token; Q3 nine hooks at lines 53 to 82; Q4 keys and lines answered; Q2 no script in the scripts folder ren"
+},
+{
+"seq": 215985,
+"utc": "2026-10-31T20:22:58Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DECISION",
+"role": null,
+"text": "the record cannot hold the user folder's name, so every user-folder path in the zeus fill is spelled ~/ and the installer renders it, as the GOAL's layout alrea"
+},
+{
+"seq": 216080,
+"utc": "2026-10-31T20:23:44Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T03/card.md"
+},
+{
+"seq": 216354,
+"utc": "2026-10-31T20:24:33Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH writer line above did not run: the Agent pretool hook denied it, reason quoted in report.md; the card writes only into the record but names the zeu"
+},
+{
+"seq": 216571,
+"utc": "2026-10-31T20:24:40Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "BLOCKED",
+"role": null,
+"text": "guard denial of the T03 writer dispatch, not retried in another spelling; card C3 writes the readonly gate script into the record's zeus hook folder and meets t"
+},
+{
+"seq": 216830,
+"utc": "2026-10-31T20:24:41Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "NOTE",
+"role": null,
+"text": "a Bash call holding the two lines above was denied by the Bash pretool hook on the folder name and the hook's quoted reason; nothing ran; the lines were reworde"
+},
+{
+"seq": 217032,
+"utc": "2026-10-31T20:26:24Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "HELD",
+"role": null,
+"text": "at T03, gate Q2: the Agent pretool hook denies a writer card that names the zeus Hermes hook folder the fill must carry, report .../ZEUS-01/report.md"
+},
+{
+"seq": 217145,
+"utc": "2026-10-31T20:26:56Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "REPORT",
+"role": null,
+"text": "sent through loop-report, DELIVERED, .../ZEUS-01/report.md"
+},
+{
+"seq": 217309,
+"utc": "2026-10-31T20:45:35Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "2 .../ZEUS-01/RULING.md sha256 6e925e54 ledger row 77"
+},
+{
+"seq": 217458,
+"utc": "2026-10-31T20:46:24Z",
+"goal": "ZEUS-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 d3d45d37, resume after ruling 2, ledger row 77, RULING.md sha256 6e925e54"
+},
+{
+"seq": 217723,
+"utc": "2026-10-31T20:47:34Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "NOTE",
+"role": null,
+"text": "ruling 2 (f) says the fresh writer runs in a new window; the leader rule runs no writer while a tripwire window is open, so the writer runs outside any window a"
+},
+{
+"seq": 217818,
+"utc": "2026-10-31T20:47:35Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T03/card.md"
+},
+{
+"seq": 217919,
+"utc": "2026-10-31T20:48:30Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.md sha256 b8b749c7"
+},
+{
+"seq": 218325,
+"utc": "2026-10-31T20:50:05Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../zeus/config.yaml sha256 f8d5b79a, config.hooks.yaml sha256 bffaf72d, config.recommended.yaml sha256 1fbdc1b0, rollback delete the three fil"
+},
+{
+"seq": 218375,
+"utc": "2026-10-31T20:51:24Z",
+"goal": "ZEUS-01",
+"step": "w11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 218479,
+"utc": "2026-10-31T20:51:27Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 218537,
+"utc": "2026-10-31T20:53:59Z",
+"goal": "ZEUS-01",
+"step": "w11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 218878,
+"utc": "2026-10-31T20:53:59Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: C2b to C2g and C2i PASS, C2a and C2h FAIL on the no-control rule only, the card gave no planted bad input; leader card defect, n"
+},
+{
+"seq": 219102,
+"utc": "2026-10-31T20:54:00Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FINDING",
+"role": null,
+"text": "reviewer note kept for the report: the kept shell key kanban review_dispatch true at config.yaml lines 15 to 16 is a setting, not a hook; outside C2's checks, a"
+},
+{
+"seq": 219152,
+"utc": "2026-10-31T20:54:47Z",
+"goal": "ZEUS-01",
+"step": "w12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 219259,
+"utc": "2026-10-31T20:54:49Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 219317,
+"utc": "2026-10-31T20:57:11Z",
+"goal": "ZEUS-01",
+"step": "w12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 219715,
+"utc": "2026-10-31T20:57:12Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": "review 2 .../r2/verdict.md: C2a to C2d, C2h and C2i PASS with controls, C2e C2f C2g FAIL on the no-control rule only, content matched by read; leader card defec"
+},
+{
+"seq": 219765,
+"utc": "2026-10-31T20:58:44Z",
+"goal": "ZEUS-01",
+"step": "w13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 219872,
+"utc": "2026-10-31T20:58:46Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r3/card.md"
+},
+{
+"seq": 219930,
+"utc": "2026-10-31T21:01:27Z",
+"goal": "ZEUS-01",
+"step": "w13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 220180,
+"utc": "2026-10-31T21:01:28Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": "review 3 .../r3/verdict.md: C2a to C2c and C2e to C2i PASS with controls, C2d FAIL on the no-control rule only, the planted copy held no model defect; values re"
+},
+{
+"seq": 220504,
+"utc": "2026-10-31T21:01:29Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "PARTIAL",
+"role": null,
+"text": "landed under the standing rule after two retries: eight of nine C2 rows PASS in .../r3/verdict.md, C2d FAIL; shape left out, proposed card: a C2d control copy w"
+},
+{
+"seq": 220690,
+"utc": "2026-10-31T21:02:03Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "COMMIT",
+"role": null,
+"text": "2bc4adb C2 landed partial on record, trailer Goal: ZEUS-01, scans evidence/record/2bc4adb-precommit-scan.txt and 2bc4adb-range-scan.txt hits 0"
+},
+{
+"seq": 220740,
+"utc": "2026-10-31T21:03:11Z",
+"goal": "ZEUS-01",
+"step": "w14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 220840,
+"utc": "2026-10-31T21:03:13Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../scout/card.md"
+},
+{
+"seq": 220898,
+"utc": "2026-10-31T21:06:44Z",
+"goal": "ZEUS-01",
+"step": "w14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 221102,
+"utc": "2026-10-31T21:06:45Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "INCIDENT",
+"role": null,
+"text": "the T04 scout return ran about 45 lines, over the 40-line bound; the leader keeps its RESULT line only and routes the writer to the scout's facts file by path"
+},
+{
+"seq": 221313,
+"utc": "2026-10-31T21:06:45Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "ANSWERED",
+"role": null,
+"text": "scout RESULT ANSWERED, premise 1 CANNOT DETERMINE; facts .../scout/facts.md, return .../scout/return.md"
+},
+{
+"seq": 221610,
+"utc": "2026-10-31T21:07:49Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "FINDING",
+"role": null,
+"text": "new task inside the surface: the T04 scout facts say a shell hook that times out or crashes fails open unless its entry sets fail_closed true; T10 adds it to th"
+},
+{
+"seq": 221705,
+"utc": "2026-10-31T21:07:49Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T04/card.md"
+},
+{
+"seq": 221807,
+"utc": "2026-10-31T21:08:31Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 3e398070"
+},
+{
+"seq": 222396,
+"utc": "2026-10-31T21:10:35Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer wrote docs.../gates/zeus-readonly-gate.py sha256 66fe0c8c, guarded-surfaces.json sha256 adac9fe1, vaults.json sha256 08594146, rollback evidence.../write"
+},
+{
+"seq": 222446,
+"utc": "2026-10-31T21:11:55Z",
+"goal": "ZEUS-01",
+"step": "w15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 222550,
+"utc": "2026-10-31T21:11:57Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 222712,
+"utc": "2026-10-31T21:14:42Z",
+"goal": "ZEUS-01",
+"step": "w15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner surface"
+},
+{
+"seq": 223258,
+"utc": "2026-10-31T21:14:43Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: C3d C3e C3f PASS with controls; C3a and C3b not run, the reviewer guard denies an interpreter script outside evidence or scratch"
+},
+{
+"seq": 223308,
+"utc": "2026-10-31T21:15:47Z",
+"goal": "ZEUS-01",
+"step": "w16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 223415,
+"utc": "2026-10-31T21:15:49Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 223473,
+"utc": "2026-10-31T21:18:57Z",
+"goal": "ZEUS-01",
+"step": "w16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 223677,
+"utc": "2026-10-31T21:18:58Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "INCIDENT",
+"role": null,
+"text": "the T04 review 2 return ran about 45 lines with its payload table, over the 40-line bound; the leader keeps its VERDICT line, the table is in the verdict file"
+},
+{
+"seq": 223774,
+"utc": "2026-10-31T21:18:58Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"seq": 224140,
+"utc": "2026-10-31T21:18:59Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FINDING",
+"role": null,
+"text": "new task inside the surface: review 2 of T04 reads curl -o, wget, sort -o and sed with a w command as write shapes the gate does not deny, inherited from the ki"
+},
+{
+"seq": 224318,
+"utc": "2026-10-31T21:19:23Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "COMMIT",
+"role": null,
+"text": "7905c23 C3 landed on record, trailer Goal: ZEUS-01, scans evidence/record/7905c23-precommit-scan.txt and 7905c23-range-scan.txt hits 0"
+},
+{
+"seq": 224413,
+"utc": "2026-10-31T21:20:38Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T10/card.md"
+},
+{
+"seq": 224508,
+"utc": "2026-10-31T21:20:38Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T11/card.md"
+},
+{
+"seq": 224610,
+"utc": "2026-10-31T21:21:22Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 30526225"
+},
+{
+"seq": 224905,
+"utc": "2026-10-31T21:22:00Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DONE",
+"role": null,
+"text": "writer added fail_closed true to the readonly gate entry, config.yaml sha256 65e52d82 after, config.hooks.yaml sha256 cf09608f after, rollback evidence.../write"
+},
+{
+"seq": 225007,
+"utc": "2026-10-31T21:22:01Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 f4098670"
+},
+{
+"seq": 225102,
+"utc": "2026-10-31T21:22:06Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T05/card.md"
+},
+{
+"seq": 225204,
+"utc": "2026-10-31T21:22:47Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 8a28f93f"
+},
+{
+"seq": 225299,
+"utc": "2026-10-31T21:23:05Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T06/card.md"
+},
+{
+"seq": 225401,
+"utc": "2026-10-31T21:23:33Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 fd4664e6"
+},
+{
+"seq": 225862,
+"utc": "2026-10-31T21:23:48Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer changed docs.../gates/zeus-readonly-gate.py sha256 66fe0c8c to b9d38c1e, rollback evidence.../writer/rollback.txt copy before/ back; proofs a to d pass b"
+},
+{
+"seq": 226244,
+"utc": "2026-10-31T21:23:49Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FINDING",
+"role": null,
+"text": "leader card defect: the T11 card told the writer to spell the harness paths in full inside a script under evidence, which the name scan reads as a name; the fil"
+},
+{
+"seq": 226685,
+"utc": "2026-10-31T21:23:56Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer wrote the seven C4 files, brain/zeus index and three notes, brain/shared index and one note, bots.../memories/USER.md 1145 bytes, sha256 in its return, r"
+},
+{
+"seq": 226966,
+"utc": "2026-10-31T21:23:57Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "FINDING",
+"role": null,
+"text": "leader card defect: the T05 and T06 cards pass a folder to loop-scan, which takes files only; the per-file scans move to the review cards; AC2's folder scan is "
+},
+{
+"seq": 227509,
+"utc": "2026-10-31T21:24:47Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../agents/zeus-research-record.md sha256 ed176819, zeus-research-box.md sha256 1d04d937, zeus-research-outside.md sha256 769fd74f, rollback ev"
+},
+{
+"seq": 227559,
+"utc": "2026-10-31T21:27:21Z",
+"goal": "ZEUS-01",
+"step": "w17",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 227663,
+"utc": "2026-10-31T21:27:23Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 227767,
+"utc": "2026-10-31T21:27:24Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 227871,
+"utc": "2026-10-31T21:27:24Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 227975,
+"utc": "2026-10-31T21:27:25Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 228264,
+"utc": "2026-10-31T21:30:43Z",
+"goal": "ZEUS-01",
+"step": "w17",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 1, difference .../dispatch/ZEUS-01.20261031T204551Z.log size 0 to 1865, the dispatch tool's run log of this leader session; leader reading: it holds "
+},
+{
+"seq": 228651,
+"utc": "2026-10-31T21:30:44Z",
+"goal": "ZEUS-01",
+"step": "w17",
+"kind": "INCIDENT",
+"role": null,
+"text": "window w17 closed with a difference outside the owner-surface list; the batch output is quarantined: T10 review first word PASS, T11 PASS, T05 FAIL, T06 FAIL, n"
+},
+{
+"seq": 228853,
+"utc": "2026-10-31T21:32:14Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "NOTE",
+"role": null,
+"text": "the w18 review card r2 adds a sorted-listing diff for the root entries and planted body controls; the quarantined w17 FAIL is counted as retry 1, conservatively"
+},
+{
+"seq": 229043,
+"utc": "2026-10-31T21:32:15Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "NOTE",
+"role": null,
+"text": "the w18 review card r2 adds a byte cmp of the hooks block and a planted body control; the quarantined w17 FAIL is counted as retry 1, conservatively"
+},
+{
+"seq": 229093,
+"utc": "2026-10-31T21:32:16Z",
+"goal": "ZEUS-01",
+"step": "w18",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 229197,
+"utc": "2026-10-31T21:32:18Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 229301,
+"utc": "2026-10-31T21:32:18Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 229408,
+"utc": "2026-10-31T21:32:19Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 229515,
+"utc": "2026-10-31T21:32:20Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 229573,
+"utc": "2026-10-31T21:35:33Z",
+"goal": "ZEUS-01",
+"step": "w18",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 229667,
+"utc": "2026-10-31T21:35:33Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"seq": 229764,
+"utc": "2026-10-31T21:35:34Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"seq": 229861,
+"utc": "2026-10-31T21:35:34Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"seq": 230374,
+"utc": "2026-10-31T21:35:35Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: T11a T11b T11d PASS with controls; T11c FAIL on two grounds, the old wget upload-flag rule removed under changes-no-other-rule, "
+},
+{
+"seq": 230623,
+"utc": "2026-10-31T21:35:54Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "RETRY",
+"role": null,
+"text": "1 findings sent to the same writer by message, text saved after the send at .../T11/retry1-message.md; the leader linted it after sending, an order defect recor"
+},
+{
+"seq": 230804,
+"utc": "2026-10-31T21:36:08Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 af95d7fa (retry 1 line, recorded just after the edits, before-r1 copy made before them)"
+},
+{
+"seq": 230982,
+"utc": "2026-10-31T21:36:24Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "COMMIT",
+"role": null,
+"text": "d14984e C4 landed on record, trailer Goal: ZEUS-01, scans evidence/record/d14984e-precommit-scan.txt and d14984e-range-scan.txt hits 0"
+},
+{
+"seq": 231160,
+"utc": "2026-10-31T21:36:26Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "COMMIT",
+"role": null,
+"text": "3614d69 C5 landed on record, trailer Goal: ZEUS-01, scans evidence/record/3614d69-precommit-scan.txt and 3614d69-range-scan.txt hits 0"
+},
+{
+"seq": 231339,
+"utc": "2026-10-31T21:36:28Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "COMMIT",
+"role": null,
+"text": "f997294 T10 landed on record, trailer Goal: ZEUS-01, scans evidence/record/f997294-precommit-scan.txt and f997294-range-scan.txt hits 0"
+},
+{
+"seq": 231638,
+"utc": "2026-10-31T21:36:41Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DONE",
+"role": null,
+"text": "retry 1 writer removed the dead WGET_UPLOAD constant and reworded the docstring, gate sha256 b9d38c1e to abe01a87, rollback line 2 of evidence.../writer/rollbac"
+},
+{
+"seq": 231688,
+"utc": "2026-10-31T21:37:03Z",
+"goal": "ZEUS-01",
+"step": "w19",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 231795,
+"utc": "2026-10-31T21:37:05Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 231853,
+"utc": "2026-10-31T21:40:20Z",
+"goal": "ZEUS-01",
+"step": "w19",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 231950,
+"utc": "2026-10-31T21:40:21Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"seq": 232207,
+"utc": "2026-10-31T21:40:21Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FINDING",
+"role": null,
+"text": "kept for the report as proposed cards: sed shapes the w regex misses (option values before the script, step and relative addresses, -f script files), curl -D -c"
+},
+{
+"seq": 232386,
+"utc": "2026-10-31T21:40:24Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "COMMIT",
+"role": null,
+"text": "d610b22 T11 landed on record, trailer Goal: ZEUS-01, scans evidence/record/d610b22-precommit-scan.txt and d610b22-range-scan.txt hits 0"
+},
+{
+"seq": 232481,
+"utc": "2026-10-31T21:41:43Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T07/card.md"
+},
+{
+"seq": 232583,
+"utc": "2026-10-31T21:42:21Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 3076ef21"
+},
+{
+"seq": 232955,
+"utc": "2026-10-31T21:45:55Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../zeus/install_zeus.py sha256 3d23b9ae, MANIFEST.txt sha256 16b9aa0c, and built the scratch target, rollback evidence.../writer/rollback.txt "
+},
+{
+"seq": 233189,
+"utc": "2026-10-31T21:45:56Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "SENTINEL",
+"role": null,
+"text": "leader placed target/sentinel-a and target/sentinel-b with the Write tool before the C6 window, one line of plain text each, per RULING.md ruling 1 (c); before "
+},
+{
+"seq": 233239,
+"utc": "2026-10-31T21:46:25Z",
+"goal": "ZEUS-01",
+"step": "w20",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 233343,
+"utc": "2026-10-31T21:46:27Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 233401,
+"utc": "2026-10-31T21:49:40Z",
+"goal": "ZEUS-01",
+"step": "w20",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 233495,
+"utc": "2026-10-31T21:49:41Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"seq": 233673,
+"utc": "2026-10-31T21:49:43Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "COMMIT",
+"role": null,
+"text": "ceff448 C6 landed on record, trailer Goal: ZEUS-01, scans evidence/record/ceff448-precommit-scan.txt and ceff448-range-scan.txt hits 0"
+},
+{
+"seq": 233768,
+"utc": "2026-10-31T21:50:46Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T08/card.md"
+},
+{
+"seq": 233870,
+"utc": "2026-10-31T21:51:49Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 c013ac4f"
+},
+{
+"seq": 234190,
+"utc": "2026-10-31T21:53:39Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../zeus/HANDOVER.md 130 lines sha256 270a9ee6, rollback evidence.../writer/rollback.txt delete the file; scan hits 0, Users/ count 0; open: th"
+},
+{
+"seq": 234240,
+"utc": "2026-10-31T21:54:36Z",
+"goal": "ZEUS-01",
+"step": "w21",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 234344,
+"utc": "2026-10-31T21:54:38Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 234506,
+"utc": "2026-10-31T21:57:30Z",
+"goal": "ZEUS-01",
+"step": "w21",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner surface"
+},
+{
+"seq": 234914,
+"utc": "2026-10-31T21:57:31Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: C7d PASS with control; C7a and C7c FAIL on missing controls and byte checks, card defects; C7b FAIL, two BRAIN-04 paths denied t"
+},
+{
+"seq": 235016,
+"utc": "2026-10-31T21:57:37Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1/card.md"
+},
+{
+"seq": 235250,
+"utc": "2026-10-31T21:59:11Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DONE",
+"role": null,
+"text": "retry 1 writer made the four page fixes, HANDOVER.md sha256 270a9ee6 to 84de0765, 132 lines, rollback before-r1 copy back; return .../writer/return-r1.md"
+},
+{
+"seq": 235500,
+"utc": "2026-10-31T21:59:12Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "NOTE",
+"role": null,
+"text": "a leader Bash call holding a brace group was denied by the permission layer; nothing ran; the part it held, a listing of two BRAIN-04 paths, moves to the Glob t"
+},
+{
+"seq": 235712,
+"utc": "2026-10-31T22:00:09Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "MEASURE",
+"role": null,
+"text": "leader Glob found .../BRAIN-04/RULING.md and .../review/audit-checklist.md, both present, carried on the T08 r2 review card"
+},
+{
+"seq": 235762,
+"utc": "2026-10-31T22:00:14Z",
+"goal": "ZEUS-01",
+"step": "w22",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 235869,
+"utc": "2026-10-31T22:00:16Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 236137,
+"utc": "2026-10-31T22:00:44Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH reviewer line above did not run: the Agent pretool hook denied it because the card's rollback line names the writer's evidence subfolder; leader ca"
+},
+{
+"seq": 236223,
+"utc": "2026-10-31T22:00:56Z",
+"goal": "ZEUS-01",
+"step": "w22",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, no role ran in this window"
+},
+{
+"seq": 236273,
+"utc": "2026-10-31T22:00:57Z",
+"goal": "ZEUS-01",
+"step": "w23",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 236380,
+"utc": "2026-10-31T22:00:59Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 236542,
+"utc": "2026-10-31T22:03:54Z",
+"goal": "ZEUS-01",
+"step": "w23",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner surface"
+},
+{
+"seq": 236639,
+"utc": "2026-10-31T22:03:55Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"seq": 236817,
+"utc": "2026-10-31T22:03:57Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "COMMIT",
+"role": null,
+"text": "6cf0244 C7 landed on record, trailer Goal: ZEUS-01, scans evidence/record/6cf0244-precommit-scan.txt and 6cf0244-range-scan.txt hits 0"
+},
+{
+"seq": 236912,
+"utc": "2026-10-31T22:04:51Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T12/card.md"
+},
+{
+"seq": 237014,
+"utc": "2026-10-31T22:05:34Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 289a1d8b"
+},
+{
+"seq": 237242,
+"utc": "2026-10-31T22:06:05Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer-path-guard denied the note and the index edit, docs/brain root is not in writable.txt; nothing written in the record; return .../writer/return.md"
+},
+{
+"seq": 237606,
+"utc": "2026-10-31T22:06:23Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "WRITABLE",
+"role": null,
+"text": "leader added two file roots to goals/ZEUS-01/writable.txt, docs/brain/zeus-01-done.md and docs/brain/index.md, the done-note and its one root index line the GOA"
+},
+{
+"seq": 237893,
+"utc": "2026-10-31T22:07:22Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs/brain/zeus-01-done.md sha256 1e4b645e and added one line to docs/brain/index.md, sha256 d977e9f2 to e59dc783, rollback evidence.../writer/roll"
+},
+{
+"seq": 237943,
+"utc": "2026-10-31T22:09:05Z",
+"goal": "ZEUS-01",
+"step": "w24",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 238047,
+"utc": "2026-10-31T22:09:07Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"seq": 238105,
+"utc": "2026-10-31T22:12:17Z",
+"goal": "ZEUS-01",
+"step": "w24",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 238686,
+"utc": "2026-10-31T22:12:17Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: AC2a AC5b AC5c AC7b PASS; AC2b FAIL, fillcheck pattern mode hits 23 over the fill; AC5a and AC7c FAIL on missing controls; AC7a "
+},
+{
+"seq": 238736,
+"utc": "2026-10-31T22:13:04Z",
+"goal": "ZEUS-01",
+"step": "w25",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 238843,
+"utc": "2026-10-31T22:13:06Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"seq": 238901,
+"utc": "2026-10-31T22:15:36Z",
+"goal": "ZEUS-01",
+"step": "w25",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 239357,
+"utc": "2026-10-31T22:15:37Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "review 2 .../r2/verdict.md: AC5a AC5b AC5c AC7b AC7c PASS with controls; AC2a and AC7a FAIL on missing controls, content matched; AC2b FAIL on its words, patter"
+},
+{
+"seq": 239407,
+"utc": "2026-10-31T22:15:54Z",
+"goal": "ZEUS-01",
+"step": "w26",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"seq": 239514,
+"utc": "2026-10-31T22:15:56Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r3/card.md"
+},
+{
+"seq": 239572,
+"utc": "2026-10-31T22:18:21Z",
+"goal": "ZEUS-01",
+"step": "w26",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"seq": 239877,
+"utc": "2026-10-31T22:18:22Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "review 3 .../r3/verdict.md: AC2a, AC2b scan and stoplist, AC5a to AC5c, AC7a to AC7c PASS with controls; AC2b pattern FAIL on its words, 23 hits, 22 hex runs in"
+},
+{
+"seq": 240284,
+"utc": "2026-10-31T22:18:22Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "PARTIAL",
+"role": null,
+"text": "landed under the standing rule after two retries: every final row PASS but AC2b's pattern clause, .../r3/verdict.md; shapes left out, proposed cards: render the"
+},
+{
+"seq": 240443,
+"utc": "2026-10-31T22:19:04Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "PASS",
+"role": null,
+"text": ".../r3/verdict.md, AC5a and AC5b rows measured the done-note and its index line"
+},
+{
+"seq": 240782,
+"utc": "2026-10-31T22:19:05Z",
+"goal": "ZEUS-01",
+"step": "STATE",
+"kind": "STATE.md",
+"role": null,
+"text": "sections 2, 4 and 5 edited in place for the ZEUS-01 close: git ls-files 26 to 143, last closed goal BRAIN-04 to ZEUS-01 with its GOAL sha, brain count 113 to 11"
+},
+{
+"seq": 240954,
+"utc": "2026-10-31T22:20:08Z",
+"goal": "ZEUS-01",
+"step": "CLOSE",
+"kind": "GOAL",
+"role": null,
+"text": "CLOSED VERDICT DONE, AC2 and AC1 partial and T03 and T09 partial under the standing rule, report .../ZEUS-01/report.md"
+},
+{
+"seq": 241165,
+"utc": "2026-10-31T22:20:27Z",
+"goal": "ZEUS-01",
+"step": "CLOSE",
+"kind": "COMMIT",
+"role": null,
+"text": "7f5d806 close on record, trailer Goal: ZEUS-01, scans evidence/record/7f5d806-precommit-scan.txt and 7f5d806-range-scan.txt hits 0; no push, the record has no r"
+},
+{
+"seq": 241409,
+"utc": "2026-10-31T22:20:39Z",
+"goal": "ZEUS-01",
+"step": "CLOSE",
+"kind": "GOAL",
+"role": null,
+"text": "REPORT sent through loop-report, DELIVERED, .../ZEUS-01/report.md sha256 9de5c909 at send and after; work folder and scratch target kept for the auditor as the "
+},
+{
+"seq": 241650,
+"utc": "2026-10-31T22:55:35Z",
+"goal": "ZEUS-01",
+"step": "AUDIT",
+"kind": "dispatched",
+"role": null,
+"text": "2026-10-31T22:48:00Z, report .../scratch/zeus01-audit-report.md sha256 2c884602, verdicts leader FAIL scout FAIL writer FAIL reviewer FAIL"
+},
+{
+"seq": 241981,
+"utc": "2026-10-31T23:00:02Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "3 .../ZEUS-01/RULING.md sha256 5aeba72a ledger row 78, audit FAIL on four roles recorded, DONE stands, reviewer stays on sonnet; chair notes landed docs.../zeus"
+},
+{
+"seq": 242323,
+"utc": "2026-10-31T23:42:03Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "TOMBSTONE",
+"role": null,
+"text": ".../.deleted/probe-01 removed by the owner by hand, 9 bytes, sha256 ade6d1c8, handover test two (docs.../zeus/HANDOVER.md section 4 at 6cf0244b), ruling 3 item "
+},
+{
+"seq": 242546,
+"utc": "2026-10-31T23:46:56Z",
+"goal": "ZEUS-01",
+"step": "HANDOVER",
+"kind": "both",
+"role": null,
+"text": "tests PASS, judgements .../handover/test1-judgement.md sha256 51700881 and test2-judgement.md, done-note line added, the chat retired as Zeus"
+}
+]
+}
