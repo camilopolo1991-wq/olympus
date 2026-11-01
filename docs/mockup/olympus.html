@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olympus: the Pantheon at work (mockup)</title>
+<style>
+  :root { --bg:#0b0e14; --panel:#141a24; --ink:#e6e6e6; --dim:#8a93a3; --gold:#e3b341; --red:#e5484d; --green:#46c46e; --blue:#4c8dff; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font: 13px/1.4 ui-monospace, Menlo, Consolas, monospace; }
+  header { display:flex; align-items:baseline; gap:16px; padding:10px 16px; border-bottom:1px solid #222a36; }
+  header h1 { font-size:15px; margin:0; letter-spacing:.5px; }
+  header .sub { color:var(--dim); }
+  main { display:grid; grid-template-columns: 1fr 360px; gap:12px; padding:12px 16px; }
+  #stage { background:#06080c; border:1px solid #222a36; position:relative; }
+  canvas { width:100%; height:auto; display:block; image-rendering: pixelated; image-rendering: crisp-edges; }
+  .controls { display:flex; gap:8px; align-items:center; padding:8px; border-top:1px solid #222a36; flex-wrap:wrap; }
+  button { background:#1d2531; color:var(--ink); border:1px solid #2d3745; padding:4px 10px; cursor:pointer; font:inherit; }
+  button:hover { background:#273142; }
+  input[type=range] { flex:1; min-width:160px; }
+  aside { display:flex; flex-direction:column; gap:10px; }
+  .card { background:var(--panel); border:1px solid #222a36; padding:10px 12px; }
+  .card h2 { margin:0 0 6px; font-size:12px; color:var(--gold); text-transform:uppercase; letter-spacing:1px; }
+  .kv { display:grid; grid-template-columns:auto 1fr; gap:2px 10px; }
+  .kv div:nth-child(odd) { color:var(--dim); }
+  table { width:100%; border-collapse:collapse; }
+  td, th { text-align:left; padding:2px 4px; border-bottom:1px solid #1e2632; }
+  th { color:var(--dim); font-weight:normal; }
+  .PASS, .DONE { color:var(--green); } .FAIL, .HELD, .INCIDENT { color:var(--red); } .BLOCKED, .PARTIAL { color:var(--gold); } .DISPATCH { color:var(--blue); }
+  #ticker { max-height:200px; overflow:auto; font-size:12px; }
+  #ticker div { padding:2px 0; border-bottom:1px solid #1a2029; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .legend span { display:inline-block; margin-right:10px; }
+  .sw { display:inline-block; width:10px; height:10px; margin-right:4px; vertical-align:middle; }
+  footer { color:var(--dim); padding:6px 16px 14px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>OLYMPUS</h1>
+  <span class="sub">the Pantheon at work. Mockup fed by a snapshot of the record's step log, 2026-10-31 to 2026-11-01. Read-only.</span>
+</header>
+<main>
+  <div>
+    <div id="stage"><canvas id="c" width="480" height="270"></canvas></div>
+    <div class="controls">
+      <button id="play">Play</button>
+      <button id="stepb">Step</button>
+      <label>speed <select id="speed"><option>1</option><option selected>4</option><option>12</option><option>40</option></select></label>
+      <input type="range" id="scrub" min="0" max="0" value="0">
+      <span id="clock" class="sub"></span>
+    </div>
+    <div class="card legend">
+      <span><i class="sw" style="background:#e3b341"></i>leader</span>
+      <span><i class="sw" style="background:#4c8dff"></i>scout</span>
+      <span><i class="sw" style="background:#46c46e"></i>writer</span>
+      <span><i class="sw" style="background:#c678dd"></i>reviewer</span>
+      <span><i class="sw" style="background:#e5484d"></i>auditor</span>
+      <span class="sub">Greyed temples: seats not built yet (The Tide, The Keeper, The Messenger).</span>
+    </div>
+  </div>
+  <aside>
+    <div class="card"><h2>Goal</h2><div class="kv" id="goal"></div></div>
+    <div class="card"><h2>Counters</h2><div class="kv" id="counters"></div></div>
+    <div class="card"><h2>Tasks</h2><table id="tasks"><thead><tr><th>task</th><th>last word</th><th>retries</th></tr></thead><tbody></tbody></table></div>
+    <div class="card"><h2>Step log</h2><div id="ticker"></div></div>
+  </aside>
+</main>
+<footer>Every figure here is read from step-log lines: DISPATCH lines move a figure out, PASS, FAIL, BLOCKED and PARTIAL lines bring it home, TRIPWIRE lines light the notice board, INCIDENT lines flash red, COMMIT lines stamp the record. Nothing here is estimated.</footer>
+<script>
+const EVENTS = [
+{
+"utc": "2026-10-31T19:16:52Z",
+"goal": "ZEUS-01",
+"step": "PLACED",
+"kind": "GOAL",
+"role": null,
+"text": "sha d3d45d37 ledger row 75"
+},
+{
+"utc": "2026-10-31T19:19:14Z",
+"goal": "ZEUS-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 d3d45d37"
+},
+{
+"utc": "2026-10-31T19:21:21Z",
+"goal": "ZEUS-01",
+"step": "w01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T19:21:23Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T01/card.md"
+},
+{
+"utc": "2026-10-31T19:22:00Z",
+"goal": "ZEUS-01",
+"step": "w01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T19:22:00Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH scout line above did not run: the pretool hook on the Agent call denied it because the card text "
+},
+{
+"utc": "2026-10-31T19:22:01Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "BLOCKED",
+"role": null,
+"text": "guard denial of the T01 dispatch, not retried in another spelling"
+},
+{
+"utc": "2026-10-31T19:22:37Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "HELD",
+"role": null,
+"text": "at T01, gate Q1: the Agent pretool hook denies a card that names the OAuth file of the secret class in a prohi"
+},
+{
+"utc": "2026-10-31T19:51:49Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "1 .../ZEUS-01/RULING.md sha256 6f29ee28 ledger row 76"
+},
+{
+"utc": "2026-10-31T19:52:29Z",
+"goal": "ZEUS-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 d3d45d37"
+},
+{
+"utc": "2026-10-31T19:53:12Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "NOTE",
+"role": null,
+"text": "the Bash pretool hook denied the leader's plan and card edit command because its match text quoted the old Mus"
+},
+{
+"utc": "2026-10-31T19:53:44Z",
+"goal": "ZEUS-01",
+"step": "w02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T19:53:47Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T01/card.md"
+},
+{
+"utc": "2026-10-31T19:56:34Z",
+"goal": "ZEUS-01",
+"step": "w02",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T19:56:35Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "PARTIAL",
+"role": null,
+"text": "12 of 13 commands ran, the guard denied command 9 (python -c skills set difference), return .../T01/return.md,"
+},
+{
+"utc": "2026-10-31T19:57:23Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "NOTE",
+"role": null,
+"text": "evidence/T01/card-remeasure.md failed card lint on its file name (exit 2) and was never dispatched; the same c"
+},
+{
+"utc": "2026-10-31T19:57:24Z",
+"goal": "ZEUS-01",
+"step": "w03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T19:57:27Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../remeasure/card.md"
+},
+{
+"utc": "2026-10-31T19:58:36Z",
+"goal": "ZEUS-01",
+"step": "w03",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T19:58:37Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "ANSWERED",
+"role": null,
+"text": "re-measure: skills set difference by diff -q, 8 Forge-only, 0 zeus-only, 12 common category folders plus .lock"
+},
+{
+"utc": "2026-10-31T19:59:06Z",
+"goal": "ZEUS-01",
+"step": "w04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T19:59:08Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T20:01:46Z",
+"goal": "ZEUS-01",
+"step": "w04",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner s"
+},
+{
+"utc": "2026-10-31T20:01:47Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FAIL",
+"role": null,
+"text": "review .../review/verdict.md: Forge folder list 32 against 33 live with memories missing; zeus config.yaml non"
+},
+{
+"utc": "2026-10-31T20:02:13Z",
+"goal": "ZEUS-01",
+"step": "w05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:02:16Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../retry1/card.md"
+},
+{
+"utc": "2026-10-31T20:03:50Z",
+"goal": "ZEUS-01",
+"step": "w05",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner s"
+},
+{
+"utc": "2026-10-31T20:03:51Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "ANSWERED",
+"role": null,
+"text": "retry 1: Forge 33 folders and 29 files, memories two files plus a zero-byte lock, zeus config.yaml 240 non-com"
+},
+{
+"utc": "2026-10-31T20:03:52Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FINDING",
+"role": null,
+"text": "leader card defect: every T01 card says echo the exit on the next line, and the guard denies a line after the "
+},
+{
+"utc": "2026-10-31T20:04:24Z",
+"goal": "ZEUS-01",
+"step": "w06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:04:26Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review2/card.md"
+},
+{
+"utc": "2026-10-31T20:07:19Z",
+"goal": "ZEUS-01",
+"step": "w06",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner s"
+},
+{
+"utc": "2026-10-31T20:07:20Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FAIL",
+"role": null,
+"text": "review 2 .../review2/return.md, saved by the leader after the guard denied the reviewer's write under review2/"
+},
+{
+"utc": "2026-10-31T20:07:21Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FINDING",
+"role": null,
+"text": "two readings kept for the auditor: the reviewer reads the re-measure card's diff -q as a leader-side substitut"
+},
+{
+"utc": "2026-10-31T20:07:53Z",
+"goal": "ZEUS-01",
+"step": "w07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:07:55Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T20:10:58Z",
+"goal": "ZEUS-01",
+"step": "w07",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner s"
+},
+{
+"utc": "2026-10-31T20:10:59Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "FAIL",
+"role": null,
+"text": "review 3 .../r2/verdict.md: AC1a to AC1d, R1 and both controls PASS, AC1e FAIL on errata item 2, the first sco"
+},
+{
+"utc": "2026-10-31T20:11:00Z",
+"goal": "ZEUS-01",
+"step": "T01",
+"kind": "PARTIAL",
+"role": null,
+"text": "landed under the standing rule after two retries: the baseline lists PASS in .../r2/verdict.md, the no-retry c"
+},
+{
+"utc": "2026-10-31T20:12:24Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T02/card.md"
+},
+{
+"utc": "2026-10-31T20:13:10Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.md sha256 04662ce0"
+},
+{
+"utc": "2026-10-31T20:14:13Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer-path-guard denied both record writes: no writable.txt for ZEUS-01; return .../writer/return.md"
+},
+{
+"utc": "2026-10-31T20:14:14Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "WRITABLE",
+"role": null,
+"text": "leader wrote goals/ZEUS-01/writable.txt, before absent, after sha256 c02f0b41, roots docs/bots/zeus, docs/brai"
+},
+{
+"utc": "2026-10-31T20:15:33Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer wrote docs.../zeus/SOUL.md sha256 31df5c5e and docs.../zeus/profile.yaml sha256 e3ead0d0, rollback evid"
+},
+{
+"utc": "2026-10-31T20:16:18Z",
+"goal": "ZEUS-01",
+"step": "w08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:16:20Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T20:16:52Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH reviewer line above did not run: the Agent pretool hook denied it because the card pointed at the"
+},
+{
+"utc": "2026-10-31T20:17:08Z",
+"goal": "ZEUS-01",
+"step": "w08",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, no role ran in this window"
+},
+{
+"utc": "2026-10-31T20:17:09Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "INCIDENT",
+"role": null,
+"text": "leader rule breach: the leader edited evidence.../review/card.md twice inside open window w08 (rollback stated"
+},
+{
+"utc": "2026-10-31T20:17:15Z",
+"goal": "ZEUS-01",
+"step": "w09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:17:18Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T20:19:25Z",
+"goal": "ZEUS-01",
+"step": "w09",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T20:19:26Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"utc": "2026-10-31T20:19:49Z",
+"goal": "ZEUS-01",
+"step": "T02",
+"kind": "COMMIT",
+"role": null,
+"text": "81a1491 C1 landed on record, trailer Goal: ZEUS-01, scans evidence/record/81a1491-precommit-scan.txt and 81a14"
+},
+{
+"utc": "2026-10-31T20:20:38Z",
+"goal": "ZEUS-01",
+"step": "w10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:20:41Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../scout/card.md"
+},
+{
+"utc": "2026-10-31T20:22:55Z",
+"goal": "ZEUS-01",
+"step": "w10",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T20:22:56Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "PARTIAL",
+"role": null,
+"text": "scout: Q1 Forge config paths are full drive paths, no token; Q3 nine hooks at lines 53 to 82; Q4 keys and line"
+},
+{
+"utc": "2026-10-31T20:22:58Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DECISION",
+"role": null,
+"text": "the record cannot hold the user folder's name, so every user-folder path in the zeus fill is spelled ~/ and th"
+},
+{
+"utc": "2026-10-31T20:23:44Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T03/card.md"
+},
+{
+"utc": "2026-10-31T20:24:33Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH writer line above did not run: the Agent pretool hook denied it, reason quoted in report.md; the "
+},
+{
+"utc": "2026-10-31T20:24:40Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "BLOCKED",
+"role": null,
+"text": "guard denial of the T03 writer dispatch, not retried in another spelling; card C3 writes the readonly gate scr"
+},
+{
+"utc": "2026-10-31T20:24:41Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "NOTE",
+"role": null,
+"text": "a Bash call holding the two lines above was denied by the Bash pretool hook on the folder name and the hook's "
+},
+{
+"utc": "2026-10-31T20:26:24Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "HELD",
+"role": null,
+"text": "at T03, gate Q2: the Agent pretool hook denies a writer card that names the zeus Hermes hook folder the fill m"
+},
+{
+"utc": "2026-10-31T20:26:56Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "REPORT",
+"role": null,
+"text": "sent through loop-report, DELIVERED, .../ZEUS-01/report.md"
+},
+{
+"utc": "2026-10-31T20:45:35Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "2 .../ZEUS-01/RULING.md sha256 6e925e54 ledger row 77"
+},
+{
+"utc": "2026-10-31T20:46:24Z",
+"goal": "ZEUS-01",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 d3d45d37, resume after ruling 2, ledger row 77, RULING.md sha256 6e925e54"
+},
+{
+"utc": "2026-10-31T20:47:34Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "NOTE",
+"role": null,
+"text": "ruling 2 (f) says the fresh writer runs in a new window; the leader rule runs no writer while a tripwire windo"
+},
+{
+"utc": "2026-10-31T20:47:35Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T03/card.md"
+},
+{
+"utc": "2026-10-31T20:48:30Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.md sha256 b8b749c7"
+},
+{
+"utc": "2026-10-31T20:50:05Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../zeus/config.yaml sha256 f8d5b79a, config.hooks.yaml sha256 bffaf72d, config.recommended.y"
+},
+{
+"utc": "2026-10-31T20:51:24Z",
+"goal": "ZEUS-01",
+"step": "w11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:51:27Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T20:53:59Z",
+"goal": "ZEUS-01",
+"step": "w11",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T20:53:59Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: C2b to C2g and C2i PASS, C2a and C2h FAIL on the no-control rule only, the car"
+},
+{
+"utc": "2026-10-31T20:54:00Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FINDING",
+"role": null,
+"text": "reviewer note kept for the report: the kept shell key kanban review_dispatch true at config.yaml lines 15 to 1"
+},
+{
+"utc": "2026-10-31T20:54:47Z",
+"goal": "ZEUS-01",
+"step": "w12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:54:49Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T20:57:11Z",
+"goal": "ZEUS-01",
+"step": "w12",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T20:57:12Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": "review 2 .../r2/verdict.md: C2a to C2d, C2h and C2i PASS with controls, C2e C2f C2g FAIL on the no-control rul"
+},
+{
+"utc": "2026-10-31T20:58:44Z",
+"goal": "ZEUS-01",
+"step": "w13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T20:58:46Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r3/card.md"
+},
+{
+"utc": "2026-10-31T21:01:27Z",
+"goal": "ZEUS-01",
+"step": "w13",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T21:01:28Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "FAIL",
+"role": null,
+"text": "review 3 .../r3/verdict.md: C2a to C2c and C2e to C2i PASS with controls, C2d FAIL on the no-control rule only"
+},
+{
+"utc": "2026-10-31T21:01:29Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "PARTIAL",
+"role": null,
+"text": "landed under the standing rule after two retries: eight of nine C2 rows PASS in .../r3/verdict.md, C2d FAIL; s"
+},
+{
+"utc": "2026-10-31T21:02:03Z",
+"goal": "ZEUS-01",
+"step": "T03",
+"kind": "COMMIT",
+"role": null,
+"text": "2bc4adb C2 landed partial on record, trailer Goal: ZEUS-01, scans evidence/record/2bc4adb-precommit-scan.txt a"
+},
+{
+"utc": "2026-10-31T21:03:11Z",
+"goal": "ZEUS-01",
+"step": "w14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:03:13Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../scout/card.md"
+},
+{
+"utc": "2026-10-31T21:06:44Z",
+"goal": "ZEUS-01",
+"step": "w14",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T21:06:45Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "INCIDENT",
+"role": null,
+"text": "the T04 scout return ran about 45 lines, over the 40-line bound; the leader keeps its RESULT line only and rou"
+},
+{
+"utc": "2026-10-31T21:06:45Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "ANSWERED",
+"role": null,
+"text": "scout RESULT ANSWERED, premise 1 CANNOT DETERMINE; facts .../scout/facts.md, return .../scout/return.md"
+},
+{
+"utc": "2026-10-31T21:07:49Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "FINDING",
+"role": null,
+"text": "new task inside the surface: the T04 scout facts say a shell hook that times out or crashes fails open unless "
+},
+{
+"utc": "2026-10-31T21:07:49Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T04/card.md"
+},
+{
+"utc": "2026-10-31T21:08:31Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 3e398070"
+},
+{
+"utc": "2026-10-31T21:10:35Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer wrote docs.../gates/zeus-readonly-gate.py sha256 66fe0c8c, guarded-surfaces.json sha256 adac9fe1, vault"
+},
+{
+"utc": "2026-10-31T21:11:55Z",
+"goal": "ZEUS-01",
+"step": "w15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:11:57Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:14:42Z",
+"goal": "ZEUS-01",
+"step": "w15",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner s"
+},
+{
+"utc": "2026-10-31T21:14:43Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: C3d C3e C3f PASS with controls; C3a and C3b not run, the reviewer guard denies"
+},
+{
+"utc": "2026-10-31T21:15:47Z",
+"goal": "ZEUS-01",
+"step": "w16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:15:49Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T21:18:57Z",
+"goal": "ZEUS-01",
+"step": "w16",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T21:18:58Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "INCIDENT",
+"role": null,
+"text": "the T04 review 2 return ran about 45 lines with its payload table, over the 40-line bound; the leader keeps it"
+},
+{
+"utc": "2026-10-31T21:18:58Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"utc": "2026-10-31T21:18:59Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FINDING",
+"role": null,
+"text": "new task inside the surface: review 2 of T04 reads curl -o, wget, sort -o and sed with a w command as write sh"
+},
+{
+"utc": "2026-10-31T21:19:23Z",
+"goal": "ZEUS-01",
+"step": "T04",
+"kind": "COMMIT",
+"role": null,
+"text": "7905c23 C3 landed on record, trailer Goal: ZEUS-01, scans evidence/record/7905c23-precommit-scan.txt and 7905c"
+},
+{
+"utc": "2026-10-31T21:20:38Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T10/card.md"
+},
+{
+"utc": "2026-10-31T21:20:38Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T11/card.md"
+},
+{
+"utc": "2026-10-31T21:21:22Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 30526225"
+},
+{
+"utc": "2026-10-31T21:22:00Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DONE",
+"role": null,
+"text": "writer added fail_closed true to the readonly gate entry, config.yaml sha256 65e52d82 after, config.hooks.yaml"
+},
+{
+"utc": "2026-10-31T21:22:01Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 f4098670"
+},
+{
+"utc": "2026-10-31T21:22:06Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T05/card.md"
+},
+{
+"utc": "2026-10-31T21:22:47Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 8a28f93f"
+},
+{
+"utc": "2026-10-31T21:23:05Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T06/card.md"
+},
+{
+"utc": "2026-10-31T21:23:33Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 fd4664e6"
+},
+{
+"utc": "2026-10-31T21:23:48Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer changed docs.../gates/zeus-readonly-gate.py sha256 66fe0c8c to b9d38c1e, rollback evidence.../writer/ro"
+},
+{
+"utc": "2026-10-31T21:23:49Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FINDING",
+"role": null,
+"text": "leader card defect: the T11 card told the writer to spell the harness paths in full inside a script under evid"
+},
+{
+"utc": "2026-10-31T21:23:56Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer wrote the seven C4 files, brain/zeus index and three notes, brain/shared index and one note, bots.../me"
+},
+{
+"utc": "2026-10-31T21:23:57Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "FINDING",
+"role": null,
+"text": "leader card defect: the T05 and T06 cards pass a folder to loop-scan, which takes files only; the per-file sca"
+},
+{
+"utc": "2026-10-31T21:24:47Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../agents/zeus-research-record.md sha256 ed176819, zeus-research-box.md sha256 1d04d937, zeu"
+},
+{
+"utc": "2026-10-31T21:27:21Z",
+"goal": "ZEUS-01",
+"step": "w17",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:27:23Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:27:24Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:27:24Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:27:25Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:30:43Z",
+"goal": "ZEUS-01",
+"step": "w17",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 1, difference .../dispatch/ZEUS-01.20261031T204551Z.log size 0 to 1865, the dispatch tool's run log"
+},
+{
+"utc": "2026-10-31T21:30:44Z",
+"goal": "ZEUS-01",
+"step": "w17",
+"kind": "INCIDENT",
+"role": null,
+"text": "window w17 closed with a difference outside the owner-surface list; the batch output is quarantined: T10 revie"
+},
+{
+"utc": "2026-10-31T21:32:14Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "NOTE",
+"role": null,
+"text": "the w18 review card r2 adds a sorted-listing diff for the root entries and planted body controls; the quaranti"
+},
+{
+"utc": "2026-10-31T21:32:15Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "NOTE",
+"role": null,
+"text": "the w18 review card r2 adds a byte cmp of the hooks block and a planted body control; the quarantined w17 FAIL"
+},
+{
+"utc": "2026-10-31T21:32:16Z",
+"goal": "ZEUS-01",
+"step": "w18",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:32:18Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:32:18Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:32:19Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T21:32:20Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T21:35:33Z",
+"goal": "ZEUS-01",
+"step": "w18",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T21:35:33Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"utc": "2026-10-31T21:35:34Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"utc": "2026-10-31T21:35:34Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"utc": "2026-10-31T21:35:35Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: T11a T11b T11d PASS with controls; T11c FAIL on two grounds, the old wget uplo"
+},
+{
+"utc": "2026-10-31T21:35:54Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "RETRY",
+"role": null,
+"text": "1 findings sent to the same writer by message, text saved after the send at .../T11/retry1-message.md; the lea"
+},
+{
+"utc": "2026-10-31T21:36:08Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 af95d7fa (retry 1 line, recorded just after the edits, before-r1 copy m"
+},
+{
+"utc": "2026-10-31T21:36:24Z",
+"goal": "ZEUS-01",
+"step": "T05",
+"kind": "COMMIT",
+"role": null,
+"text": "d14984e C4 landed on record, trailer Goal: ZEUS-01, scans evidence/record/d14984e-precommit-scan.txt and d1498"
+},
+{
+"utc": "2026-10-31T21:36:26Z",
+"goal": "ZEUS-01",
+"step": "T06",
+"kind": "COMMIT",
+"role": null,
+"text": "3614d69 C5 landed on record, trailer Goal: ZEUS-01, scans evidence/record/3614d69-precommit-scan.txt and 3614d"
+},
+{
+"utc": "2026-10-31T21:36:28Z",
+"goal": "ZEUS-01",
+"step": "T10",
+"kind": "COMMIT",
+"role": null,
+"text": "f997294 T10 landed on record, trailer Goal: ZEUS-01, scans evidence/record/f997294-precommit-scan.txt and f997"
+},
+{
+"utc": "2026-10-31T21:36:41Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DONE",
+"role": null,
+"text": "retry 1 writer removed the dead WGET_UPLOAD constant and reworded the docstring, gate sha256 b9d38c1e to abe01"
+},
+{
+"utc": "2026-10-31T21:37:03Z",
+"goal": "ZEUS-01",
+"step": "w19",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:37:05Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T21:40:20Z",
+"goal": "ZEUS-01",
+"step": "w19",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T21:40:21Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"utc": "2026-10-31T21:40:21Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "FINDING",
+"role": null,
+"text": "kept for the report as proposed cards: sed shapes the w regex misses (option values before the script, step an"
+},
+{
+"utc": "2026-10-31T21:40:24Z",
+"goal": "ZEUS-01",
+"step": "T11",
+"kind": "COMMIT",
+"role": null,
+"text": "d610b22 T11 landed on record, trailer Goal: ZEUS-01, scans evidence/record/d610b22-precommit-scan.txt and d610"
+},
+{
+"utc": "2026-10-31T21:41:43Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T07/card.md"
+},
+{
+"utc": "2026-10-31T21:42:21Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 3076ef21"
+},
+{
+"utc": "2026-10-31T21:45:55Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../zeus/install_zeus.py sha256 3d23b9ae, MANIFEST.txt sha256 16b9aa0c, and built the scratch"
+},
+{
+"utc": "2026-10-31T21:45:56Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "SENTINEL",
+"role": null,
+"text": "leader placed target/sentinel-a and target/sentinel-b with the Write tool before the C6 window, one line of pl"
+},
+{
+"utc": "2026-10-31T21:46:25Z",
+"goal": "ZEUS-01",
+"step": "w20",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:46:27Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:49:40Z",
+"goal": "ZEUS-01",
+"step": "w20",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T21:49:41Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "PASS",
+"role": null,
+"text": ".../review/verdict.md"
+},
+{
+"utc": "2026-10-31T21:49:43Z",
+"goal": "ZEUS-01",
+"step": "T07",
+"kind": "COMMIT",
+"role": null,
+"text": "ceff448 C6 landed on record, trailer Goal: ZEUS-01, scans evidence/record/ceff448-precommit-scan.txt and ceff4"
+},
+{
+"utc": "2026-10-31T21:50:46Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T08/card.md"
+},
+{
+"utc": "2026-10-31T21:51:49Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 c013ac4f"
+},
+{
+"utc": "2026-10-31T21:53:39Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs.../zeus/HANDOVER.md 130 lines sha256 270a9ee6, rollback evidence.../writer/rollback.txt dele"
+},
+{
+"utc": "2026-10-31T21:54:36Z",
+"goal": "ZEUS-01",
+"step": "w21",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T21:54:38Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T21:57:30Z",
+"goal": "ZEUS-01",
+"step": "w21",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner s"
+},
+{
+"utc": "2026-10-31T21:57:31Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: C7d PASS with control; C7a and C7c FAIL on missing controls and byte checks, c"
+},
+{
+"utc": "2026-10-31T21:57:37Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../retry1/card.md"
+},
+{
+"utc": "2026-10-31T21:59:11Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DONE",
+"role": null,
+"text": "retry 1 writer made the four page fixes, HANDOVER.md sha256 270a9ee6 to 84de0765, 132 lines, rollback before-r"
+},
+{
+"utc": "2026-10-31T21:59:12Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "NOTE",
+"role": null,
+"text": "a leader Bash call holding a brace group was denied by the permission layer; nothing ran; the part it held, a "
+},
+{
+"utc": "2026-10-31T22:00:09Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "MEASURE",
+"role": null,
+"text": "leader Glob found .../BRAIN-04/RULING.md and .../review/audit-checklist.md, both present, carried on the T08 r"
+},
+{
+"utc": "2026-10-31T22:00:14Z",
+"goal": "ZEUS-01",
+"step": "w22",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T22:00:16Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T22:00:44Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "CORRECTION",
+"role": null,
+"text": "the DISPATCH reviewer line above did not run: the Agent pretool hook denied it because the card's rollback lin"
+},
+{
+"utc": "2026-10-31T22:00:56Z",
+"goal": "ZEUS-01",
+"step": "w22",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, no role ran in this window"
+},
+{
+"utc": "2026-10-31T22:00:57Z",
+"goal": "ZEUS-01",
+"step": "w23",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T22:00:59Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T22:03:54Z",
+"goal": "ZEUS-01",
+"step": "w23",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0, NOISE ~/ntuser.dat.LOG1 registry transaction log at the top of the home, a standing-rule owner s"
+},
+{
+"utc": "2026-10-31T22:03:55Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "PASS",
+"role": null,
+"text": ".../r2/verdict.md"
+},
+{
+"utc": "2026-10-31T22:03:57Z",
+"goal": "ZEUS-01",
+"step": "T08",
+"kind": "COMMIT",
+"role": null,
+"text": "6cf0244 C7 landed on record, trailer Goal: ZEUS-01, scans evidence/record/6cf0244-precommit-scan.txt and 6cf02"
+},
+{
+"utc": "2026-10-31T22:04:51Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../T12/card.md"
+},
+{
+"utc": "2026-10-31T22:05:34Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "ROLLBACK",
+"role": null,
+"text": "evidence.../writer/rollback.txt sha256 289a1d8b"
+},
+{
+"utc": "2026-10-31T22:06:05Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "BLOCKED",
+"role": null,
+"text": "writer-path-guard denied the note and the index edit, docs/brain root is not in writable.txt; nothing written "
+},
+{
+"utc": "2026-10-31T22:06:23Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "WRITABLE",
+"role": null,
+"text": "leader added two file roots to goals/ZEUS-01/writable.txt, docs/brain/zeus-01-done.md and docs/brain/index.md,"
+},
+{
+"utc": "2026-10-31T22:07:22Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "DONE",
+"role": null,
+"text": "writer wrote docs/brain/zeus-01-done.md sha256 1e4b645e and added one line to docs/brain/index.md, sha256 d977"
+},
+{
+"utc": "2026-10-31T22:09:05Z",
+"goal": "ZEUS-01",
+"step": "w24",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T22:09:07Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../review/card.md"
+},
+{
+"utc": "2026-10-31T22:12:17Z",
+"goal": "ZEUS-01",
+"step": "w24",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T22:12:17Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "review 1 .../review/verdict.md: AC2a AC5b AC5c AC7b PASS; AC2b FAIL, fillcheck pattern mode hits 23 over the f"
+},
+{
+"utc": "2026-10-31T22:13:04Z",
+"goal": "ZEUS-01",
+"step": "w25",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T22:13:06Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r2/card.md"
+},
+{
+"utc": "2026-10-31T22:15:36Z",
+"goal": "ZEUS-01",
+"step": "w25",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T22:15:37Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "review 2 .../r2/verdict.md: AC5a AC5b AC5c AC7b AC7c PASS with controls; AC2a and AC7a FAIL on missing control"
+},
+{
+"utc": "2026-10-31T22:15:54Z",
+"goal": "ZEUS-01",
+"step": "w26",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN"
+},
+{
+"utc": "2026-10-31T22:15:56Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "DISPATCH",
+"role": "reviewer",
+"text": "reviewer .../r3/card.md"
+},
+{
+"utc": "2026-10-31T22:18:21Z",
+"goal": "ZEUS-01",
+"step": "w26",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-10-31T22:18:22Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "FAIL",
+"role": null,
+"text": "review 3 .../r3/verdict.md: AC2a, AC2b scan and stoplist, AC5a to AC5c, AC7a to AC7c PASS with controls; AC2b "
+},
+{
+"utc": "2026-10-31T22:18:22Z",
+"goal": "ZEUS-01",
+"step": "T09",
+"kind": "PARTIAL",
+"role": null,
+"text": "landed under the standing rule after two retries: every final row PASS but AC2b's pattern clause, .../r3/verdi"
+},
+{
+"utc": "2026-10-31T22:19:04Z",
+"goal": "ZEUS-01",
+"step": "T12",
+"kind": "PASS",
+"role": null,
+"text": ".../r3/verdict.md, AC5a and AC5b rows measured the done-note and its index line"
+},
+{
+"utc": "2026-10-31T22:19:05Z",
+"goal": "ZEUS-01",
+"step": "STATE",
+"kind": "STATE.md",
+"role": null,
+"text": "sections 2, 4 and 5 edited in place for the ZEUS-01 close: git ls-files 26 to 143, last closed goal BRAIN-04 t"
+},
+{
+"utc": "2026-10-31T22:20:08Z",
+"goal": "ZEUS-01",
+"step": "CLOSE",
+"kind": "GOAL",
+"role": null,
+"text": "CLOSED VERDICT DONE, AC2 and AC1 partial and T03 and T09 partial under the standing rule, report .../ZEUS-01/r"
+},
+{
+"utc": "2026-10-31T22:20:27Z",
+"goal": "ZEUS-01",
+"step": "CLOSE",
+"kind": "COMMIT",
+"role": null,
+"text": "7f5d806 close on record, trailer Goal: ZEUS-01, scans evidence/record/7f5d806-precommit-scan.txt and 7f5d806-r"
+},
+{
+"utc": "2026-10-31T22:20:39Z",
+"goal": "ZEUS-01",
+"step": "CLOSE",
+"kind": "GOAL",
+"role": null,
+"text": "REPORT sent through loop-report, DELIVERED, .../ZEUS-01/report.md sha256 9de5c909 at send and after; work fold"
+},
+{
+"utc": "2026-10-31T22:55:35Z",
+"goal": "ZEUS-01",
+"step": "AUDIT",
+"kind": "dispatched",
+"role": null,
+"text": "2026-10-31T22:48:00Z, report .../scratch/zeus01-audit-report.md sha256 2c884602, verdicts leader FAIL scout FA"
+},
+{
+"utc": "2026-10-31T23:00:02Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "RULING",
+"role": null,
+"text": "3 .../ZEUS-01/RULING.md sha256 5aeba72a ledger row 78, audit FAIL on four roles recorded, DONE stands, reviewe"
+},
+{
+"utc": "2026-10-31T23:42:03Z",
+"goal": "ZEUS-01",
+"step": "GOAL",
+"kind": "TOMBSTONE",
+"role": null,
+"text": ".../.deleted/probe-01 removed by the owner by hand, 9 bytes, sha256 ade6d1c8, handover test two (docs.../zeus/"
+},
+{
+"utc": "2026-10-31T23:46:56Z",
+"goal": "ZEUS-01",
+"step": "HANDOVER",
+"kind": "both",
+"role": null,
+"text": "tests PASS, judgements .../handover/test1-judgement.md sha256 51700881 and test2-judgement.md, done-note line "
+},
+{
+"utc": "2026-11-01T00:29:51Z",
+"goal": "KIT-06",
+"step": "PLACED",
+"kind": "GOAL",
+"role": null,
+"text": "sha 1000efcb ledger row 80, state section 5 set"
+},
+{
+"utc": "2026-11-01T00:30:46Z",
+"goal": "KIT-06",
+"step": "START",
+"kind": "START",
+"role": null,
+"text": "GOAL.md sha256 1000efcb writable line names ~/loop-kit, names entries=6 present"
+},
+{
+"utc": "2026-11-01T00:31:28Z",
+"goal": "KIT-06",
+"step": "CUT",
+"kind": "CUT",
+"role": null,
+"text": "kit-06 from main 345cfbf7; wt-main at 345cfbf7 detached, wt-branch at 345cfbf7 on kit-06, both under $LOOP_HOM"
+},
+{
+"utc": "2026-11-01T00:32:21Z",
+"goal": "KIT-06",
+"step": "W01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "OPEN W01 for T01"
+},
+{
+"utc": "2026-11-01T00:32:24Z",
+"goal": "KIT-06",
+"step": "T01",
+"kind": "DISPATCH",
+"role": "scout",
+"text": "scout .../T01/card.md"
+},
+{
+"utc": "2026-11-01T00:36:59Z",
+"goal": "KIT-06",
+"step": "W01",
+"kind": "TRIPWIRE",
+"role": null,
+"text": "CLOSE exit 0"
+},
+{
+"utc": "2026-11-01T00:37:27Z",
+"goal": "KIT-06",
+"step": "T01",
+"kind": "INCIDENT",
+"role": null,
+"text": "scout return 55 lines, over the 40-line ceiling; kept RESULT ANSWERED only, saved .../T01/return.md"
+},
+{
+"utc": "2026-11-01T00:37:28Z",
+"goal": "KIT-06",
+"step": "T01",
+"kind": "T01",
+"role": null,
+"text": "PASS .../evidence/T01/ return.md ANSWERED, stub five-line premise not determined"
+},
+{
+"utc": "2026-11-01T00:37:52Z",
+"goal": "KIT-06",
+"step": "T02",
+"kind": "DISPATCH",
+"role": "writer",
+"text": "writer .../writer/card.md"
+}
+];
+const ROLES = { leader:'#e3b341', scout:'#4c8dff', writer:'#46c46e', reviewer:'#c678dd', auditor:'#e5484d' };
+const c = document.getElementById('c'), g = c.getContext('2d');
+g.imageSmoothingEnabled = false;
+// Map layout in the 480x270 backing canvas
+const SEA = '#17355e', SAND = '#d9c58a', GRASS = '#4e8a3f', ROCK = '#6f6f7a', CLOUD = '#f0f3f8', SNOW = '#e9eef5';
+const olympus = { x:30, y:30, w:190, h:150 };
+const forge = { x:270, y:120, w:190, h:130 };
+const temples = [
+  { name:'THE CHAIR', x:70, y:60, built:true },
+  { name:'THE TIDE', x:130, y:50, built:false },
+  { name:'THE KEEPER', x:100, y:110, built:false },
+];
+const messenger = { name:'THE MESSENGER', x:225, y:150, built:false };
+const forgeHouse = { name:'THE FORGE', x:390, y:150 };
+const record = { name:'RECORD', x:300, y:215 };
+const board = { name:'TRIPWIRE', x:345, y:135 };
+const huts = { leader:{x:300,y:150}, scout:{x:330,y:170}, writer:{x:360,y:195}, reviewer:{x:405,y:205}, auditor:{x:440,y:175} };
+const site = { scout:record, writer:forgeHouse, reviewer:record, auditor:record, leader:board };
+const fig = {}; for (const r in ROLES) fig[r] = { x:huts[r].x, y:huts[r].y, tx:huts[r].x, ty:huts[r].y, busy:false, label:'' };
+let i = 0, playing = false, timer = null, state = null;
+
+function reset() {
+  state = { goal:'', status:'', window:'none', windowsOpen:0, windowsClosed:0, dispatch:{leader:0,scout:0,writer:0,reviewer:0,auditor:0}, fail:0, pass:0, incidents:0, commits:0, blocked:0, partial:0, tasks:{}, flash:0, last:[] };
+  for (const r in fig) { fig[r].x = huts[r].x; fig[r].y = huts[r].y; fig[r].tx = huts[r].x; fig[r].ty = huts[r].y; fig[r].busy = false; fig[r].label=''; }
+}
+function apply(e) {
+  const s = state; s.goal = e.goal;
+  const task = /^T\d+$/.test(e.step) ? e.step : null;
+  if (task && !s.tasks[task]) s.tasks[task] = { word:'', retries:0 };
+  switch (e.kind) {
+    case 'START': s.status = 'RUNNING'; break;
+    case 'DISPATCH': { const r = e.role in ROLES ? e.role : 'leader'; s.dispatch[r]++; send(r, site[r], task || ''); if (task && e.role==='reviewer') { const t = s.tasks[task]; if (t.word==='FAIL') t.retries++; } break; }
+    case 'PASS': s.pass++; if (task) s.tasks[task].word='PASS'; home('writer'); home('reviewer'); home('scout'); break;
+    case 'FAIL': s.fail++; if (task) s.tasks[task].word='FAIL'; home('reviewer'); break;
+    case 'BLOCKED': s.blocked++; if (task) s.tasks[task].word='BLOCKED'; home('writer'); home('scout'); break;
+    case 'PARTIAL': s.partial++; if (task) s.tasks[task].word='PARTIAL'; home('scout'); break;
+    case 'ANSWERED': if (task) s.tasks[task].word='ANSWERED'; home('scout'); break;
+    case 'DONE': if (task) s.tasks[task].word='DONE'; home('writer'); break;
+    case 'TRIPWIRE': if (/OPEN/.test(e.text)) { s.window = e.step; s.windowsOpen++; send('leader', board, e.step); } else { s.window='none'; s.windowsClosed++; home('leader'); } break;
+    case 'INCIDENT': s.incidents++; s.flash = 12; break;
+    case 'COMMIT': s.commits++; break;
+    case 'HELD': s.status='HELD'; for (const r in fig) home(r); break;
+    case 'CLOSED': case 'CLOSE': if (/DONE/.test(e.text) || e.kind==='CLOSED') s.status='DONE'; break;
+    case 'GOAL': if (/CLOSED DONE/.test(e.text)) s.status='DONE'; if (/HELD/.test(e.text)) s.status='HELD'; if (/RULING/.test(e.text)) s.status='RUNNING'; break;
+    case 'dispatched': send('auditor', record, 'AUDIT'); break;
+  }
+  if (e.step === 'CLOSE' && /CLOSED DONE/.test(e.text)) s.status = 'DONE';
+  s.last.unshift(e); if (s.last.length > 60) s.last.pop();
+}
+function send(r, to, label) { fig[r].tx = to.x + (r==='leader'?-8:8); fig[r].ty = to.y + 16; fig[r].busy = true; fig[r].label = label; }
+function home(r) { fig[r].tx = huts[r].x; fig[r].ty = huts[r].y; fig[r].busy = false; fig[r].label=''; }
+function goTo(n) { reset(); for (let k = 0; k < n; k++) apply(EVENTS[k]); i = n; for (const r in fig) { fig[r].x = fig[r].tx; fig[r].y = fig[r].ty; } render(); }
+function tick() { if (i >= EVENTS.length) { playing=false; document.getElementById('play').textContent='Play'; return; } apply(EVENTS[i]); i++; render(); }
+
+function px(x,y,w,h,col){ g.fillStyle=col; g.fillRect(x|0,y|0,w|0,h|0); }
+function text(t,x,y,col,size){ g.fillStyle=col||'#fff'; g.font=(size||6)+'px monospace'; g.fillText(t,x|0,y|0); }
+function temple(t, built){ const base = built? '#d9d4c7':'#4a4f5a', col = built? '#f3efe4':'#5a606b', roof = built? '#b8893a':'#3f4451';
+  px(t.x-18,t.y+14,36,4,base); for (let k=0;k<4;k++) px(t.x-14+k*9,t.y,3,14,col); px(t.x-20,t.y-6,40,6,roof); px(t.x-16,t.y-11,32,5,roof);
+  text(t.name,t.x-20,t.y+24,built?'#ffe8a3':'#7d8390'); if(!built) text('not built',t.x-14,t.y+31,'#7d8390'); }
+function hut(x,y,col){ px(x-6,y+2,12,8,'#5a3d1e'); px(x-8,y-3,16,5,col); }
+function figure(f, col){ px(f.x-2,f.y-9,5,4,'#f1d2b0'); px(f.x-2,f.y-5,5,6,col); px(f.x-2,f.y+1,2,3,'#222'); px(f.x+1,f.y+1,2,3,'#222'); if (f.busy) { px(f.x-1,f.y-13,3,3,'#fff'); } if (f.label) text(f.label,f.x+5,f.y-6,'#cfd6e0',5); }
+let frame = 0;
+function render(){
+  frame++;
+  px(0,0,480,270,SEA);
+  for (let k=0;k<30;k++){ const x=(k*53+frame)%480, y=(k*37)%270; px(x,y,6,1,'#2a4f82'); }
+  // Olympus island
+  px(olympus.x,olympus.y+20,olympus.w,olympus.h-20,SAND); px(olympus.x+8,olympus.y+28,olympus.w-16,olympus.h-36,GRASS);
+  px(90,22,70,40,ROCK); px(105,14,40,16,SNOW); px(70,10,30,8,CLOUD); px(150,16,34,8,CLOUD);
+  text('OLYMPUS',95,52,'#ffffff',7);
+  temples.forEach(t=>temple(t,t.built));
+  // pier and messenger
+  px(215,160,30,6,'#8a6b3e'); temple(messenger,false);
+  // Forge island
+  px(forge.x,forge.y,forge.w,forge.h,SAND); px(forge.x+8,forge.y+8,forge.w-16,forge.h-16,'#6b7f3a');
+  px(forgeHouse.x-16,forgeHouse.y-2,32,16,'#3a3a44'); px(forgeHouse.x-18,forgeHouse.y-8,36,6,'#7a2e2e'); px(forgeHouse.x+6,forgeHouse.y-16,4,8,'#3a3a44');
+  const smoke = (frame>>3)%3; px(forgeHouse.x+6,forgeHouse.y-20-smoke*3,4,3,'#9aa0ad'); px(forgeHouse.x-3,forgeHouse.y+6,6,6,'#ff8a3d');
+  text('THE FORGE',forgeHouse.x-20,forgeHouse.y+24,'#ffe8a3');
+  px(record.x-12,record.y-2,24,14,'#9a8b6a'); px(record.x-14,record.y-6,28,4,'#6b5a3a'); text('RECORD',record.x-12,record.y+20,'#e6e6e6');
+  const open = state.window!=='none'; px(board.x-10,board.y-6,20,12, open? '#e3b341':'#2d3745'); text(open? state.window:'closed',board.x-9,board.y+2, open?'#000':'#8a93a3',5); text('WINDOW',board.x-12,board.y+14,'#cfd6e0',5);
+  for (const r in huts) hut(huts[r].x,huts[r].y,ROLES[r]);
+  for (const r in fig) { const f=fig[r]; f.x += Math.sign(f.tx-f.x)*Math.min(2,Math.abs(f.tx-f.x)); f.y += Math.sign(f.ty-f.y)*Math.min(2,Math.abs(f.ty-f.y)); figure(f,ROLES[r]); }
+  if (state.flash>0) { state.flash--; px(0,0,480,4,'#e5484d'); px(0,266,480,4,'#e5484d'); }
+  text(state.goal+'  '+state.status, 6, 266, state.status==='HELD'?'#e5484d':state.status==='DONE'?'#46c46e':'#e6e6e6', 7);
+  // panels
+  const e = EVENTS[Math.max(0,i-1)];
+  document.getElementById('clock').textContent = e ? e.utc + '  (' + i + '/' + EVENTS.length + ')' : '';
+  document.getElementById('scrub').value = i;
+  kv('goal', { id:state.goal, status:state.status, window:state.window, 'last line':(e?e.kind+' '+e.step:'') });
+  kv('counters', { 'dispatch leader/scout/writer/reviewer/auditor': Object.values(state.dispatch).join(' / '), 'PASS lines':state.pass, 'FAIL lines':state.fail, 'BLOCKED / PARTIAL':state.blocked+' / '+state.partial, 'windows opened / closed':state.windowsOpen+' / '+state.windowsClosed, 'incidents':state.incidents, 'record commits':state.commits });
+  const tb = document.querySelector('#tasks tbody'); tb.innerHTML = Object.keys(state.tasks).sort().map(t=>'<tr><td>'+t+'</td><td class="'+state.tasks[t].word+'">'+state.tasks[t].word+'</td><td>'+state.tasks[t].retries+'</td></tr>').join('');
+  document.getElementById('ticker').innerHTML = state.last.slice(0,40).map(x=>'<div><span class="'+x.kind+'">'+x.kind+'</span> '+x.step+' '+esc(x.text)+'</div>').join('');
+}
+function kv(id,obj){ document.getElementById(id).innerHTML = Object.entries(obj).map(([k,v])=>'<div>'+k+'</div><div>'+esc(String(v))+'</div>').join(''); }
+function esc(s){ return s.replace(/[&<>]/g, ch=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch])); }
+document.getElementById('play').onclick = ()=>{ playing=!playing; document.getElementById('play').textContent = playing?'Pause':'Play'; };
+document.getElementById('stepb').onclick = ()=>{ playing=false; document.getElementById('play').textContent='Play'; tick(); };
+document.getElementById('scrub').max = EVENTS.length; document.getElementById('scrub').oninput = ev=>{ playing=false; goTo(+ev.target.value); };
+setInterval(()=>{ if (playing) { const sp = +document.getElementById('speed').value; for (let k=0;k<sp;k++) tick(); } }, 500);
+setInterval(render, 90);
+reset(); render();
+</script>
+</body>
+</html>
